@@ -1,0 +1,194 @@
+ion-content {
+  ion-card {
+    margin-top: 10px;
+    font-size: 13px;
+
+    ion-card-header {
+      padding: 14px 10px;
+    }
+
+    ion-grid {
+      ::ng-deep {
+        a p,
+        a {
+          color: var(--pec-color-link);
+          text-decoration: underline;
+        }
+
+        p {
+          margin-top: 0;
+          margin-bottom: 13px;
+          font-weight: 400;
+          line-height: 1.5;
+        }
+
+        h2 {
+          margin: 19px 0 16px 0;
+          font-weight: 400;
+          white-space: normal;
+          font-size: 16px;
+        }
+
+        h1,
+        h2,
+        h3 {
+          font-family: var(--pec-font-headline);
+        }
+
+        h3,
+        h4,
+        h5,
+        h6 {
+          margin: 2px 0;
+          font-size: 14px;
+          font-weight: 400;
+          color: #222;
+        }
+
+        h4 {
+          margin-bottom: 0.5em;
+        }
+
+        table {
+          width: 100%;
+          display: block;
+          overflow: auto;
+          border-width: 0 !important;
+        }
+
+        iframe {
+          width: 100%;
+        }
+      }
+    }
+
+    .course-description {
+      ::ng-deep .cmsExpandCollapse > .cmsExpandCollapseHeader {
+        display: inline-block;
+        vertical-align: middle;
+        text-decoration: underline;
+      }
+
+      ::ng-deep .cmsExpandCollapse > .cmsExpandCollapseBody {
+        padding: 5px 0 0 20px;
+        display: none;
+      }
+
+      ::ng-deep .cmsExpandCollapse > .cmsExpandCollapseHeader:before {
+        content: "+";
+        vertical-align: middle;
+        display: inline-block;
+        height: 16px;
+        width: 16px;
+        background-color: var(--pec-color-primary);
+        color: var(--pec-color-white);
+        border-radius: 2px;
+        font-size: 20px;
+        text-align: center;
+        padding: 0;
+        margin-right: 4px;
+        line-height: 14px;
+      }
+
+      ::ng-deep .cmsExpandCollapse.cmsExpandCollapseExpanded > .cmsExpandCollapseHeader:before {
+        content: "-";
+      }
+
+      ::ng-deep .cmsExpandCollapse.cmsExpandCollapseExpanded > .cmsExpandCollapseBody {
+        display: block;
+      }
+    }
+
+    .non-active-member {
+      font-style: italic;
+      color: var(--pec-color-grey);
+    }
+
+    .member-name {
+      font-size: 13px;
+      padding-bottom: 0;
+    }
+
+    .deliverable-length {
+      font-weight: 700;
+      color: var(--pec-color-dark);
+
+      p {
+        display: inline;
+        color: var(--pec-color-dark);
+        font-weight: 400;
+        font-size: 13px;
+      }
+    }
+
+    .instructions {
+      font-weight: 700;
+      color: var(--pec-color-dark);
+
+      p {
+        display: inline;
+        color: var(--pec-color-dark);
+        font-weight: 400;
+        font-size: 13px;
+      }
+    }
+
+    .no-reading-assignment {
+      margin: 0;
+      padding: 25px 25px 45px 25px;
+    }
+
+    img {
+      margin-left: auto;
+      margin-right: auto;
+      display: table;
+      width: auto;
+      min-width: 0;
+    }
+
+    &.group-project-card {
+      ion-card-header {
+        p {
+          margin: 0;
+
+          span {
+            font-size: 12px;
+            text-transform: none;
+            color: var(--pec-color-primary);
+            font-weight: 600;
+          }
+        }
+      }
+    }
+
+    .container {
+      line-height: 16px;
+      overflow: hidden;
+      height: 67px;
+    }
+
+    .show {
+      overflow: visible;
+      height: auto;
+    }
+
+    .show-more-label {
+      color: var(--pec-color-link);
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    .details-header {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: var(--pec-color-darkest-grey);
+    }
+
+    &.ios {
+      .details-header {
+        letter-spacing: -1px;
+      }
+    }
+  }
+}

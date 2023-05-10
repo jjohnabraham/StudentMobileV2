@@ -1,0 +1,36 @@
+<ion-card class="pec-finanical-docs-card">
+  <ion-card-header class="pec-fs-12 pec-bc-divider pec-pt-15 pec-pb-14 pec-px-12">
+    <span class="number-documents">{{ documentsCount }}</span>
+    <span>&nbsp;Document(s) Needed</span>
+    <div class="overview-description pec-mt-10 pec-fs-13 pec-fw-400" [innerHtml]="overviewDescription"></div>
+  </ion-card-header>
+  <ng-container *ngIf="requiredActions">
+    <ion-list class="pec-pb-14">
+      <pec-financial-aid-document-item
+        *ngFor="let action of filteredActions"
+        [document]="action"
+      ></pec-financial-aid-document-item>
+    </ion-list>
+    <ion-grid *ngIf="requiredActions.length > 0 || submittedActions.length > 0" class="pec-p-0">
+      <ion-row class="pec-pt-0 pec-pb-14 pec-px-12">
+        <ion-col>
+          <ion-button
+            [routerLink]="['/tabs/financial-aid/document-summary']"
+            class="pec-button-grey pec-text-tr-up"
+            [pecTrackEvent]="{
+              category: 'Financial Aid View',
+              action: 'Tapped View all Outstanding Documents',
+              label: '',
+              value: ''
+            }"
+          >
+            <ng-container *ngIf="requiredActions.length > 0">VIEW ALL DOCUMENTS</ng-container>
+            <ng-container *ngIf="requiredActions.length === 0 && submittedActions.length > 0">
+              VIEW ALL SUBMITTED DOCUMENTS
+            </ng-container>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ng-container>
+</ion-card>

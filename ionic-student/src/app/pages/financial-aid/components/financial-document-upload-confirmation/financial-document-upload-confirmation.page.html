@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="pec-back-button" [text]="''" [icon]="''"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div>Upload a Document</div>
+      <div class="subtitle" *ngIf="documentUploadName">{{ documentUploadName }}</div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content forceOverscroll="false" [pecTrackView]="{ view: 'Upload Document Confirmation View' }">
+  <ng-container *ngIf="!showError">
+    <ion-card
+      [ngClass]="{ 'upload-success': isSubmitSuccess, 'upload-fail': !isSubmitSuccess }"
+      class="pec-contact-card pec-upload-send-card"
+    >
+      <ng-container>
+        <ion-card-header class="pec-fs-12 pec-bc-divider pec-pt-15 pec-pb-14">
+          <span class="pec-text-success" *ngIf="isSubmitSuccess">
+            <i class="pec-icon-check-single"></i>
+            {{ documentUploadName ? documentUploadName : 'Document' }} Sent
+          </span>
+          <span *ngIf="!isSubmitSuccess" class="pec-text-error">
+            {{ documentUploadName ? documentUploadName : 'Document' }} Failed to Send
+          </span>
+        </ion-card-header>
+
+        <ion-card-content>
+          <div class="submit-message pec-font-body pec-pt-12 pec-mb-15 pec-fs-14" *ngIf="isSubmitSuccess">
+            You have successfully sent the following file(s) to
+            <pec-school-info></pec-school-info>
+            <span>:</span>
+          </div>
+          <div class="submit-message" *ngIf="!isSubmitSuccess">The following file(s) have failed to send:</div>
+
+          <ion-list class="pec-file-upload-list pec-pb-16">
+            <ion-item *ngFor="let file of uploadedFiles">
+              <div class="file-wrapper pec-d-flex-grow-1 pec-px-5 pec-py-2 pec-fs-12 pec-text-tr-up pec-d-flex-grow-1">
+                <div
+                  class="file-name pec-font-body pec-fw-600 pec-fs-12"
+                  [ngClass]="{ 'pec-text-success ': isSubmitSuccess, 'pec-text-error': !isSubmitSuccess }"
+                >
+                  {{ file.name }}
+                </div>
+                <div class="file-size text-instr-soft">{{ file.size / (1024 * 1024) | number: '1.2-2' }}MB</div>
+              </div>
+            </ion-item>
+          </ion-list>
+          <ion-button
+            *ngIf="isSubmitSuccess && documentUploadName"
+            (click)="sendToFA()"
+            class="pec-button-grey pec-text-tr-up"
+            [pecTrackEvent]="{
+              category: 'Upload Document Confirmation',
+              action: 'Tapped Return to Financial Aid',
+              label: '',
+              value: ''
+            }"
+          >
+            Return To Financial Aid
+          </ion-button>
+          <ion-button
+            *ngIf="isSubmitSuccess && !documentUploadName"
+            class="pec-button-grey pec-text-tr-up"
+            (click)="navCtrl.pop()"
+            [pecTrackEvent]="{
+              category: 'Upload Document Confirmation',
+              action: 'Tapped Send Another Document',
+              label: '',
+              value: ''
+            }"
+          >
+            Send Another Document
+          </ion-button>
+          <ion-button
+            *ngIf="!isSubmitSuccess"
+            (click)="submitSendDocuments()"
+            class="pec-button-grey pec-text-tr-up"
+            [pecTrackEvent]="{
+              category: 'Upload Document Confirmation',
+              action: 'Tapped to Resend',
+              label: '',
+              value: ''
+            }"
+          >
+            Resend
+          </ion-button>
+        </ion-card-content>
+      </ng-container>
+    </ion-card>
+    <pec-financial-aid-advisor
+      [eventCategory]="'Upload Document Confirmation'"
+      (errorOnLoad)="onError($event)"
+    ></pec-financial-aid-advisor>
+  </ng-container>
+  <ng-container *ngIf="showError">
+    <pec-error-api [errorDetails]="errorCodeMessage"></pec-error-api>
+  </ng-container>
+</ion-content>

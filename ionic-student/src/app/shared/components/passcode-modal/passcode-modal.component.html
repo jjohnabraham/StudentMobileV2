@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div>Passcode</div>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()" fill="clear" color="primary">Cancel</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="passcode-page" forceOverscroll="false">
+  <pec-passcode [options]="passcodeOptions"></pec-passcode>
+</ion-content>

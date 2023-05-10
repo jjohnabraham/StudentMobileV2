@@ -1,0 +1,43 @@
+<pec-loading *ngIf="showLoading"></pec-loading>
+<ion-card
+  *ngIf="!showLoading"
+  name="financial-contact-card"
+  data-pecname="financial-contact-card"
+  class="pec-contact-card"
+>
+  <ion-card-header class="pec-fs-12 pec-bc-divider pec-pt-15 pec-pb-14 pec-px-12">
+    <span class="pec-fw-600">Need Help?</span>
+  </ion-card-header>
+  <ion-grid>
+    <ng-container *ngFor="let contact of allcontacts">
+      <ng-container *ngIf="!isFinancialAidAdvisor">
+        <ion-row *ngIf="contact.ContactGroup == 'Financial Aid'">
+          <ion-col>
+            <pec-contact-box
+              [contactInfo]="contact"
+              [trackEvent]="{
+                category: eventCategory,
+                action: 'Tapped to View Contact',
+                label: 'Financial Aid',
+                value: ''
+              }"
+            ></pec-contact-box>
+          </ion-col>
+        </ion-row>
+      </ng-container>
+      <ion-row *ngIf="contact.ContactGroup === 'Financial Aid Advisor'">
+        <ion-col>
+          <pec-contact-box
+            [contactInfo]="contact"
+            [trackEvent]="{
+              category: eventCategory,
+              action: 'Tapped to View Contact',
+              label: 'Financial Aid Advisor',
+              value: ''
+            }"
+          ></pec-contact-box>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+  </ion-grid>
+</ion-card>

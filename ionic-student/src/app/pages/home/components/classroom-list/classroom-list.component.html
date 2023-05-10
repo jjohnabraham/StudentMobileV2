@@ -1,0 +1,56 @@
+<ion-list *ngIf="isStandardClass" class="fade-in-show">
+  <div class="wrapper-show">
+    <div *ngIf="showOverview">
+      <pec-classroom-overview-card
+        overviewType="Course"
+        [classStatus]="classStatus"
+        [isStandard]="isStandardClass"
+        [isNewCustomCourse]="isNewCustomCourse"
+        [classInfo]="classSummary"
+        [isListView]="true"
+      ></pec-classroom-overview-card>
+    </div>
+    <ng-container
+      *ngIf="(!isStandardClass || isNewCustomCourse) && classInfo.Locations && classInfo.Locations.length > 0"
+    >
+      <pec-meeting-card
+        [courseCode]="classInfo.CourseCode"
+        [locations]="classInfo.Locations"
+        class="pec-mb-20"
+      ></pec-meeting-card>
+    </ng-container>
+    <div *ngFor="let unit of unitsInfo">
+      <div id="unit-number-{{ unit.UnitNumber }}" class="fade-in-show">
+        <ion-card *ngIf="unit.HasAssignments === false">
+          <ion-card-content>
+            <h2 class="pec-text-dark-grey">No assignments in this unit</h2>
+          </ion-card-content>
+        </ion-card>
+        <ion-list>
+          <pec-classroom-overview-card
+            *ngIf="!isAccelerated && unit.HasAssignments"
+            [classStatus]="classStatus"
+            overviewType="Unit"
+            [isStandard]="isStandardClass"
+            [isNewCustomCourse]="isNewCustomCourse"
+            [unitInfo]="unit"
+            (unitOverviewReady)="onUnitOverviewReady($event, unit)"
+          ></pec-classroom-overview-card>
+          <pec-unit-assignments-list
+            [isCTU]="isCTU"
+            [classSummary]="classSummary"
+            [isPilotedCourse]="isPilotedCourse"
+            [isNewCustomCourse]="isNewCustomCourse"
+            [unit]="unit"
+            [zoomConcludedChatList]="zoomConcludedChatList"
+            (assignmentsReady)="onAssignmentsReady($event, unit)"
+            (apiError)="onError()"
+          ></pec-unit-assignments-list>
+        </ion-list>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!(this.isOrientation || this.isAccelerated)">
+    <pec-smarthinking-tips-card [trackView]="'Classroom View'" [classId]="classId"></pec-smarthinking-tips-card>
+  </div>
+</ion-list>

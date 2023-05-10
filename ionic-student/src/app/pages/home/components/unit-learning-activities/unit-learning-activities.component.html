@@ -1,0 +1,121 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="pec-back-button" [text]="''" [icon]="''"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div>{{ !isCtu ? 'Learning Materials' : 'Books & Resources' }}</div>
+      <div class="subtitle" *ngIf="groundLearningActivitiesView && assignment">
+        {{ assignment.AssignmentName }}
+      </div>
+      <div class="subtitle" *ngIf="unitLearningActivitiesView && currentUnitInfo && !isCtu && isStandard">
+        Unit {{ currentUnitInfo.UnitNumber }} ({{ currentUnitInfo.StartDate | pecDate: 'MMMM d' | async }} -
+        {{ currentUnitInfo.EndDate | pecDate: 'MMMM d' | async }})
+      </div>
+      <div class="subtitle" *ngIf="unitLearningActivitiesView && currentUnitInfo && isCtu && isStandard">
+        Unit {{ currentUnitInfo.UnitNumber }} - {{ currentUnitInfo.UnitTitle }}
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content forceOverscroll="false">
+  <pec-loading *ngIf="showLoading"></pec-loading>
+  <ion-card
+    class="pec-m-0 reading-assignment-description"
+    *ngIf="(unitLearningActivitiesView && readingAssignment && readingAssignment[0].ReadingAssignment) || ebookMessage"
+  >
+    <div *ngIf="unitLearningActivitiesView && readingAssignment && readingAssignment[0].ReadingAssignment">
+      <b>Assigned Reading:&nbsp;</b>
+      <p [innerHTML]="readingAssignment[0].ReadingAssignment"></p>
+    </div>
+    <ion-label *ngIf="ebookMessage" class="ebook-message">
+      {{ ebookMessage }}
+    </ion-label>
+  </ion-card>
+  <ion-list *ngIf="hasLrnAct || unitLearningActivitiesView">
+    <ion-list-header class="books-and-guides">
+      <ion-label>{{ bookshelf ? bookshelf.length : '0' }} BOOKS & GUIDES</ion-label>
+    </ion-list-header>
+    <ng-container *ngIf="bookshelf && bookshelf.length > 0">
+      <ion-item *ngFor="let book of bookshelf">
+        <button
+          class="bookshelf-redirect"
+          pecUrlRedirect
+          [pecOpenIn]="'browser'"
+          [pecUrl]="book.Url"
+          [pecTrackEvent]="{
+            category: 'Classroom View',
+            action:
+              book.MaterialType == 'Guide'
+                ? 'Tapped to Access Lib Guide '
+                : book.MaterialType == 'e-Book - BvD'
+                ? 'Tapped to Access BVD Book'
+                : 'Tapped to Access Vital Source Book',
+            label: book.ISBN,
+            value: '',
+            classId: classId
+          }"
+        >
+          <ion-grid>
+            <ion-row class="bookshelf-title">
+              <span [ngClass]="{ 'book-title': book.ItalicizedTitle, 'nonbook-title': !book.ItalicizedTitle }">
+                {{ book.Title }}
+              </span>
+              <span> by {{ book.Author }}</span>
+            </ion-row>
+            <ion-row class="bookshelf-term">Term {{ book.TermCode }}</ion-row>
+            <ion-row class="bookshelf-course">{{ book.CourseName }} ({{ book.CourseCode }})</ion-row>
+          </ion-grid>
+        </button>
+      </ion-item>
+      <ion-item *ngIf="uniquePMIArray && uniquePMIArray.length > 0">
+        <div class="pec-py-13">
+          <div *ngFor="let book of uniquePMIArray">
+            <div class="bookshelf-pmi" *ngIf="book" [innerHTML]="book | pecSafeHtml"></div>
+          </div>
+        </div>
+      </ion-item>
+    </ng-container>
+  </ion-list>
+  <ion-list *ngIf="hasLrnAct || unitLearningActivitiesView">
+    <ion-list-header class="books-and-guides">
+      <ion-label>
+        {{ unitLearningMaterial ? unitLearningMaterial.length : '0' }}
+        {{ !isCtu ? 'LEARNING ACTIVITIES' : 'RESOURCE(S)' }}
+      </ion-label>
+    </ion-list-header>
+    <div *ngIf="unitLearningMaterial && unitLearningMaterial.length > 0">
+      <ion-item *ngFor="let unit of unitLearningMaterial">
+        <button
+          class="bookshelf-redirect"
+          pecUrlRedirect
+          [pecOpenIn]="'inapp'"
+          [pecUrl]="unit.Url"
+          [pecTrackEvent]="{
+            category: isCtu ? 'Books and Resources' : 'Learning Activities',
+            action: 'Tapped to Access a Learning Material',
+            label: unit.ResourceType == 'MUSE' || unit.ResourceType == 'Link' ? unit.ResourceType : 'File',
+            value: '',
+            courseId: classId
+          }"
+        >
+          <ion-grid>
+            <ion-row class="bookshelf-title">{{ unit.Name }}</ion-row>
+            <ion-row class="unit-material">{{ unit.ResourceType }}</ion-row>
+          </ion-grid>
+        </button>
+      </ion-item>
+    </div>
+  </ion-list>
+  <ion-card
+    *ngIf="!hasLrnAct && !unitLearningActivitiesView && !showLoading"
+    class="pec-m-0 pec-p-25 no-reading-assignment"
+  >
+    <ion-card-content>
+      <p>
+        No {{ !isCtu ? 'Learning Materials' : 'books or resources' }} have been assigned to this {{ lrnActUnitType }}.
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

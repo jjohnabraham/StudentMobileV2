@@ -1,0 +1,42 @@
+<div
+  class="pec-swiper-wrapper pec-ml-n25 pec-mr-n25"
+  [class.swiper-no-swiping]="lockSlides"
+  [class.pec-swiper-wrapper-show]="!hideSlides"
+>
+  <ng-container *ngIf="faStatuses && faStatuses.length">
+    <ion-slides
+      no-bounce
+      [class.hideOverhang]="faStatuses.length == 1"
+      [class.showOverhang]="faStatuses.length > 1"
+      (ionSlideDidChange)="slideChanged($event)"
+      (ionSlideWillChange)="ionSlideWillChange($event)"
+      pager="false"
+      speed="500"
+      [loop]="false"
+      followFinger="true"
+      slidesPerView="1"
+    >
+      <ion-slide *ngFor="let status of faStatuses">
+        <ion-card class="pec-financial-overview-slider-card">
+          <ion-card-header class="smaller-header">
+            <span text-uppercase>{{ status.Title }}</span>
+          </ion-card-header>
+          <ion-card-content>
+            <div justify-content-start class="overview-description">
+              <span *ngIf="status.Status == 1" class="status-icon pec-icon-warning-circle"></span>
+              <span *ngIf="status.Status == 2" class="status-icon pec-icon-ellipsis-hz-circle"></span>
+              <span *ngIf="status.Status == 3" class="status-icon pec-icon-check-circle-outline"></span>
+              {{ status.Message ? 'STATUS: ' + status.Message : '' }}
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </ng-container>
+</div>
+<ion-card class="pec-financial-overview-slider-card single-card" *ngIf="isPackagedMessage">
+  <ion-card-header class="smaller-header"></ion-card-header>
+  <ion-card-content>
+    <div justify-content-start class="overview-description">STATUS: {{ isPackagedMessage }}</div>
+  </ion-card-content>
+</ion-card>

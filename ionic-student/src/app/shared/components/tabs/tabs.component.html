@@ -1,0 +1,47 @@
+<ion-tabs #pecTabs (ionTabsDidChange)="ionTabsDidChange($event)">
+  <ion-tab-bar [translucent]="true" slot="bottom" *ngIf="showTabs">
+    <ion-tab-button [class.selected-tab]="isHomeTab" #tab1 tab="home" (click)="tabClick($event, 1)">
+      <i class="pec-fs-24 pec-icon-home-icon-root" aria-hidden="true"></i>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button [class.selected-tab]="isDegreeTab" #tab2 tab="degree" (click)="tabClick($event, 2)">
+      <i
+        class="pec-fs-24"
+        [class]="!isDegreeTab ? 'pec-icon-tabbar-home' : 'pec-icon-degree-fill'"
+        aria-hidden="true"
+      ></i>
+      <ion-label>Degree</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button [class.selected-tab]="isConnectTab" #tab3 (click)="showConnectMenu()">
+      <i
+        class="pec-fs-24"
+        [class]="!isConnectTab ? 'pec-icon-tabbar-messenger-outline' : 'pec-icon-connect-fill'"
+        aria-hidden="true"
+      >
+        <ion-badge
+          color="primary"
+          *ngIf="tabMessagesShowBadge || tabAnnouncementsShowBadge || tabNotificationsShowBadge"
+        >
+          &nbsp;
+        </ion-badge>
+      </i>
+      <ion-label>Connect</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button [class.selected-tab]="isFinTab" #tab4 tab="financial-aid" (click)="tabClick($event, 4)">
+      <i
+        class="pec-fs-24"
+        [class]="!isFinTab ? 'pec-icon-financial-outline' : 'pec-icon-financial-aid-fill'"
+        aria-hidden="true"
+      ></i>
+      <ion-label>Financial Aid</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button [class.selected-tab]="isMoreTab" #tab5 tab="more" (click)="tabClick($event, 5)">
+      <i class="pec-fs-24 pec-icon-tabbar-menu" aria-hidden="true"></i>
+      <ion-label>More</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

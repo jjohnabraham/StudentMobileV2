@@ -1,0 +1,41 @@
+:host-context(.theme-18) {
+    .pec-financial-notpackaged-header-card ion-card-header {
+      background: var(--pec-logo-icon-white);
+      background-size: 50px;
+      background-color: var(--pec-color-primary);
+      background-repeat: no-repeat;
+      background-position-x: 95%;
+      background-position-y: 60px;
+      color: var(--pec-color-white)
+    }
+  }
+  :host-context(.theme-9) {
+    .pec-financial-notpackaged-header-card ion-card-header {
+      background: var(--pec-logo-icon-white);
+      background-size: 115px;
+      background-color: var(--pec-color-primary);
+      background-repeat: no-repeat;
+      background-position-x: 97%;
+      background-position-y: 107%;
+      color: var(--pec-color-white)
+    }
+  }
+  .pec-financial-notpackaged-header-card {
+    ion-card-header {
+        padding: 15px 16px;
+        color: var(--pec-color-white);
+        font-size: 1.4rem;
+        line-height: 1.4;
+        font-weight: 400;
+        font-size: 14px;
+        letter-spacing: 0; 
+    }
+    ion-card-content {
+      padding-top: 8px;
+      padding-bottom: 8px;
+        .col {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    } 
+}

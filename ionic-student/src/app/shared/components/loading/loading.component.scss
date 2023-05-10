@@ -1,0 +1,14 @@
+.pec-loading {
+  ion-spinner {
+    vertical-align: middle;
+  }
+
+  .ios.spinner-crescent circle {
+    stroke: var(--pec-color-primary);
+  }
+
+  h3 {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}

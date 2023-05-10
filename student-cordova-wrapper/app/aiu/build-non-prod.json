@@ -1,0 +1,44 @@
+{
+  "ios": {
+    "debug": {
+      "codeSignIdentitiy": "iPhone Developer",
+      "packageType": "development",
+      "developmentTeam": "HBVF4MF2Y8",
+      "provisioningProfile": "AIU Faculty NonProd",
+      "iCloudContainerEnvironment": "Development",
+      "buildFlag": [
+        "EMBEDDED_CONTENT_CONTAINS_SWIFT = YES",
+        "ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES=NO",
+        "-UseModernBuildSystem=0",
+        "LD_RUNPATH_SEARCH_PATHS = \"@executable_path/Frameworks\"",
+        "deployment-target=11.0",
+        "-UseModernBuildSystem=0"
+      ]
+    },
+    "release": {
+      "codeSignIdentitiy": "iPhone Distribution",
+      "developmentTeam": "HBVF4MF2Y8",
+      "packageType": "ad-hoc",
+      "provisioningProfile": "AIU Faculty NonProd",
+      "buildFlag": [
+        "EMBEDDED_CONTENT_CONTAINS_SWIFT = YES",
+        "ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES=NO",
+        "-UseModernBuildSystem=0",
+        "LD_RUNPATH_SEARCH_PATHS = \"@executable_path/Frameworks\"",
+        "deployment-target=11.0",
+        "-UseModernBuildSystem=0"
+      ]
+    }
+  },   
+  "android": {
+         "release": {
+             "keystore": "faculty-app-key.keystore",
+             "storePassword": "cec2017",
+             "alias": "ceco",
+             "password" : "cec2017",
+             "keystoreType": ""
+         }
+     }
+ }
+
+

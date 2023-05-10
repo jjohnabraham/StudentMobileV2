@@ -1,0 +1,44 @@
+ion-content {
+  --background: var(--pec-color-white);
+  --padding-start: 0;
+  --padding-end: 0;
+  --overflow: hidden;
+
+  &.ios {
+    --padding-bottom: 10px;
+  }
+
+  .modal-header {
+    min-height: 51px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .modal-selector {
+    padding-left: 20px;
+    padding-right: 20px;
+
+    ion-button {
+      --padding-start: 6px;
+      --padding-end: 6px;
+
+      &::part(native) {
+        line-height: 15.6px;
+      }
+    }
+  }
+}
+
+@media (max-width: 339px) {
+  ion-content {
+    .modal-header {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .modal-selector {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+}

@@ -1,0 +1,70 @@
+ion-content {
+  font-family: var(--pec-font-default);
+  --padding-top: 0;
+  --padding-bottom: 0;
+  --padding-start: 0;
+  --padding-end: 0;
+
+  ion-row.announcement-detail-header {
+    margin: 0;
+    background: var(--pec-color-white);
+    border-bottom: 1px solid #e5e5e5;
+    padding: 12px;
+
+    ion-avatar {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+
+      img {
+        border-radius: 4px;
+      }
+    }
+
+    .announcement-detail-school-logo {
+      flex: 0;
+    }
+
+    .announcement-detail-course {
+      font-size: 16px;
+      line-height: 18px;
+      align-self: center;
+      color: var(--ion-color-dark-shade);
+    }
+
+    .announcement-detail-send-date {
+      flex: 0;
+      min-width: 70px;
+      text-align: right;
+      color: #626262;
+    }
+  }
+
+  .announcement-detail-body {
+    background-color: var(--pec-color-white);
+    padding: 12px;
+    overflow-x: scroll;
+
+    -webkit-user-select: auto !important;
+    .scroll {
+      -webkit-user-select: inherit;
+    }
+
+    .announcement-detail-title {
+      font-weight: bold;
+      color: var(--ion-color-dark-shade);
+    }
+
+    img {
+      height: auto;
+    }
+  }
+  .announcement-detail-body {
+    ::ng-deep {
+      iframe {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+}

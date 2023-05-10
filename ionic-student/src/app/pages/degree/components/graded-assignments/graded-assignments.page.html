@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="pec-back-button" [text]="''" [icon]="''" defaultHref=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div>Graded Assignments</div>
+      <div class="subtitle">{{ courseDescription }}</div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content
+  forceOverscroll="false"
+  [class.error-page]="showError"
+  [pecTrackView]="{ view: 'Assignments View' }"
+  class="pec-p-0"
+>
+  <ion-list *ngIf="assignmentList && assignmentList.length">
+    <div
+      *ngFor="let assignment of assignmentList"
+      (click)="goToDetail(assignment)"
+      [pecTrackEvent]="{
+        category: 'Degree Plan View',
+        action: 'Tapped to View Completed Course Info',
+        label: 'Grade Details',
+        value: '',
+        classId: classId
+      }"
+    >
+      <ion-item *ngIf="assignment.PossiblePoints != 0" class="pec-pr-10">
+        <ion-label>{{ assignment.AssignmentName }}</ion-label>
+        <ion-note slot="end" color="primary" class="pec-font-oswald pec-ml-0">
+          {{ assignment.IsExtraCredit ? 'N/A' : assignment.GradeLetter }}
+        </ion-note>
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>

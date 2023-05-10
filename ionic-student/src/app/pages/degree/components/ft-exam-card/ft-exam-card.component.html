@@ -1,0 +1,14 @@
+<ion-card class="pec-p-0" *ngIf="exam" (click)="accessClass($event)">
+  <ion-card-header>
+    {{ exam.Description }}
+  </ion-card-header>
+  <ion-card-content class="pec-px-12 pec-pb-10">
+    <h5 class="pec-pb-10 pec-text-primary">
+      Exam scheduled for {{ exam.StartDate | pecDate: 'MMMM d, yyyy' | async }}
+    </h5>
+    <h5>
+      {{ exam.CourseCode }}-{{ exam.Term }}
+      <span *ngIf="exam.Section">-{{ exam.Section }}</span>
+    </h5>
+  </ion-card-content>
+</ion-card>

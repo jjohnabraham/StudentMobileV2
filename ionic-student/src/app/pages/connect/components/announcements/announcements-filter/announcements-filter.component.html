@@ -1,0 +1,56 @@
+<ion-row class="announcements-filter-buffer" (click)="dismissFilter()"></ion-row>
+
+<ion-row class="announcements-filter-content">
+  <ion-list-header class="modal-title-header">
+    <ion-row class="modal-title-row pec-d-justify-content-between pec-w-100">
+      <ion-col class="pec-d-flex pec-d-align-items-center">
+        <div class="announcements-filter-title pec-p-6">FILTERS</div>
+        <div
+          class="announcements-filter-count"
+          [ngClass]="{
+            'announcements-filter-selected': filterOptions && filterOptions.filterCount && filterOptions.filterCount > 0
+          }"
+        >
+          {{ filterOptions.filterCount }}
+        </div>
+      </ion-col>
+
+      <ion-col
+        class="pec-d-justify-content-center pec-text-right pec-d-align-items-center announcements-clear-filter"
+        [ngClass]="{ 'announcements-clear-filter-no-selection': filterOptions.filterCount <= 0 }"
+        tappable
+        (click)="clearFilters()"
+        [pecTrackEvent]="{
+          category: 'Announcements View',
+          action: 'Tapped to Clear all Filters',
+          label: '',
+          value: ''
+        }"
+      >
+        Clear all
+      </ion-col>
+    </ion-row>
+  </ion-list-header>
+
+  <ion-grid class="filter-grid" *ngIf="filterOptions && filterOptions.courses && filterOptions.courses.length > 0">
+    <ion-row>
+      <ion-col class="filter-section-title">COURSES</ion-col>
+    </ion-row>
+    <ion-row class="filter-options">
+      <ion-col class="announcements-course-filter" *ngFor="let course of filterOptions.courses">
+        <button
+          (click)="selectFilter(course.courseCode)"
+          [ngClass]="{ 'announcement-filter-selected': course.selected }"
+          [pecTrackEvent]="{
+            category: 'Announcements View',
+            action: 'Tapped to Filter by Course',
+            label: '',
+            value: ''
+          }"
+        >
+          {{ course.courseCode }}
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-row>

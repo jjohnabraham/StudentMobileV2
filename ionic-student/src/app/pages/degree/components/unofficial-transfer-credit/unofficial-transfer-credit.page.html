@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="pec-back-button" [text]="''" [icon]="''" defaultHref="degree"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Unofficial Credit</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content *ngIf="showLoading">
+  <pec-loading class="fade-up" [class.fade-up-show]="showLoading"></pec-loading>
+</ion-content>
+<ion-content
+  forceOverscroll="false"
+  [class.error-page]="showError"
+  [pecTrackView]="{ view: 'Assignments View' }"
+  *ngIf="!showLoading"
+  class="transfer"
+>
+  <div class="transfer-top-message pec-pt-16">
+    <span class="pec-font-default-bold pec-fs-12 pec-pb-16 ion-text-uppercase">
+      {{ transferCourses.TransferClassList.length }} Potential Course{{ transferCourses.TransferClassList.length > 1 ?
+      's' : '' }} with Transfer Credit
+    </span>
+    <p class="pec-fs-14">{{ transferCourses.TransferCourseHelpMessage }}</p>
+  </div>
+  <ion-card class="transfer-card pec-mb-10" *ngFor="let course of transferCourses.TransferClassList">
+    <ion-card-header class="transfer-card-header pec-fs-17 pec-px-12 pec-pb-12 pec-pt-16 ion-text-capitalize">
+      {{ course.TransferCourseDescrip }}
+    </ion-card-header>
+    <ion-card-content class="transfer-card-content pec-fs-12 pec-fw-700 pec-pb-12 pec-pl-16 pec-pt-0 pec-pr-0">
+      <div class="transfer-card-content-code">
+        <span class="pec-text-primary">{{ course.TransferCreditsEarned }} Potential Credits</span>
+        | {{ course.TransferCourseCode }}
+      </div>
+      <div class="transfer-card-content-school">{{ course.TransferSchoolName }}</div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="pec-mb-20">
+    <ion-card-header class="pec-fs-12 pec-fw-600 ion-text-uppercase pec-pt-15 pec-px-12 pec-pb-14">
+      <span>NEED HELP?</span>
+    </ion-card-header>
+    <ion-row>
+      <ion-col>
+        <pec-contact-box
+          [contactInfo]="registrarContact"
+          [trackEvent]="{
+            category: 'Degree View',
+            action: 'Tapped to View Contact',
+            label: 'Financial Aid Advisor',
+            value: ''
+          }"
+        ></pec-contact-box>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

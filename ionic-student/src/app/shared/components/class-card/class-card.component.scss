@@ -1,0 +1,127 @@
+ion-card {
+  --color: var(--pec-color-dark);
+  margin-bottom: 20px;
+
+  &.classroom-view {
+    width: auto;
+  }
+
+  .no-grade-box {
+    flex-grow: 0;
+    margin-left: auto;
+    min-width: 52px;
+  }
+  h5 {
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: -0.22px;
+    line-height: 17px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    &.color-primary {
+      color: var(--pec-color-primary);
+    }
+  }
+
+  ion-card-header {
+    padding: 16px 12px 12px;
+    font-size: 17px;
+    text-transform: none;
+    border-bottom: 0;
+
+    &.ios {
+      font-size: 18px;
+    }
+  }
+
+  .grade-box {
+    height: 44px;
+    box-shadow: inset 0 0 0 1px var(--pec-color-dark);
+    overflow: hidden;
+
+    h2 {
+      font-family: var(--pec-font-headline);
+      font-size: 28px;
+      line-height: 42px;
+      height: 44px;
+      max-width: 40px;
+      color: var(--pec-color-white);
+      text-align: center;
+      padding: 0;
+      margin: 0;
+      background-color: var(--pec-color-dark);
+      flex: 1;
+
+      &.smaller-text {
+        font-size: 21px;
+        line-height: 41px;
+      }
+    }
+
+    span {
+      display: block;
+      padding: 3px 0;
+      font-size: 12px;
+      word-wrap: normal;
+      line-height: 16px;
+      text-align: center;
+      margin: 0 auto;
+      flex: 1;
+
+      &.pec-fw-700 {
+        font-size: 13px;
+        letter-spacing: -0.02em;
+      }
+    }
+  }
+
+  .limit-text {
+    max-width: 80%;
+    display: inline-block;
+    word-wrap: break-word;
+  }
+
+  .card-header-block {
+    text-transform: uppercase;
+    padding: 8px 0 8px 15px;
+    background-color: var(--ion-color-dark-shade);
+  }
+}
+
+:host-context(.full-width) {
+  ion-card {
+    margin: 0 -25px 20px;
+    padding: 0 15px 5px;
+    border-radius: 0;
+    clip-path: inset(0px 0px -5px 0px);
+
+    ion-card-header {
+      padding-top: 4px;
+    }
+  }
+}
+
+:host-context(.theme-9) {
+  .accelerate-fastrack-icon {
+    background-image: var(--pec-logo-accelerate-fasttrack);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    float: right !important;
+    height: 35px;
+    width: 35px;
+  }
+}
+:host-context(.theme-18) {
+  .accelerate-fastrack-icon {
+    background-image: var(--pec-logo-accelerate-fasttrack);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    float: right !important;
+    height: 15px;
+    width: 50px;
+  }
+}

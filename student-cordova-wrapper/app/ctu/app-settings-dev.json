@@ -1,0 +1,16 @@
+{
+  "AppConfigurations": {
+    "AppId": "edu.ctu.studentappdev",
+    "AppName": "CTU Student DEV",
+    "AppDisplayName": "CTU&#x2007;Student&#x2007;DEV",
+    "CustomUrlScheme": "ctustudentdev",
+    "UrbanAirshipAppKey": "ZNy_LBqoRtyUNQ261QiO7Q",
+    "UrbanAirshipAppSecret": "pWLLp2VYT9axlBIwRk8PWA",
+    "UrbanAirshipGcmSenderId": "924718124336"
+  },
+
+  "Preferences": {
+    "Url": "http://CSC-CChaer.cec.root.careered.com:8101/assets/",
+    "Environment": "dev"
+  }
+}

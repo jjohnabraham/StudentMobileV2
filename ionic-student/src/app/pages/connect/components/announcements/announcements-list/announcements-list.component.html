@@ -1,0 +1,110 @@
+<ng-container *ngIf="announcementsList && announcementsList.length > 0">
+  <ion-list *ngIf="announcementsList && classDictionary">
+    <ng-container *ngFor="let announcement of announcementsList">
+      <ion-item-sliding *ngIf="classDictionary[announcement.ClassId]" #item>
+        <ion-item
+          line="inset"
+          text-wrap
+          (click)="goToAnnouncementDetail(announcement, true, classDictionary[announcement.ClassId], item)"
+        >
+          <ion-grid>
+            <ion-row class="padding-first-row">
+              <ion-col class="announcement-first-column">
+                <ion-avatar item-start>
+                  <img [src]="schoolLogo" alt="school logo" />
+                </ion-avatar>
+              </ion-col>
+              <ion-col class="announcement-header-column">
+                <div class="announcement-header">
+                  <div class="announcement-course">
+                    {{ classDictionary[announcement.ClassId].CourseCode }} -
+                    {{ classDictionary[announcement.ClassId].CourseName }}
+                  </div>
+                  <div>Course Announcement</div>
+                </div>
+              </ion-col>
+              <ion-col>
+                <div class="announcement-send-date">
+                  <div class="announcement-date-buffer"></div>
+                  <ion-badge *ngIf="!announcement.Read"></ion-badge>
+                  <div>{{ announcement.PublishDate | pecTimePastDate }}</div>
+                </div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col class="announcement-first-column"></ion-col>
+              <ion-col class="announcement-title">
+                <div>{{ announcement.Title }}</div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+        <ion-item-options side="end">
+          <button
+            ion-button
+            *ngIf="isAllList && announcement.Read"
+            (click)="markAnnouncementUnread(announcement.AnnouncementId, isAllList, item)"
+            [pecTrackEvent]="{
+              category: 'Announcements View',
+              action: 'Swiped to Unread an Announcement',
+              label: '',
+              value: ''
+            }"
+          >
+            <span>
+              <!-- [disabled]="globalConfigs.IsImpersonatedUser" -->
+              <ng-container>
+                <div><span class="semi-bold">Mark as</span></div>
+                <!-- <pec-icon name="x" class="dismiss-icon"></pec-icon> -->
+                <div><span class="semi-bold padding-read-unread">Unread</span></div>
+              </ng-container>
+            </span>
+          </button>
+
+          <button
+            ion-button
+            *ngIf="isAllList && !announcement.Read"
+            (click)="markAnnouncementRead(announcement.AnnouncementId, isAllList, item)"
+            [pecTrackEvent]="{
+              category: 'Announcements View',
+              action: 'Swiped to Read an Announcement',
+              label: '',
+              value: ''
+            }"
+          >
+            <span>
+              <ng-container>
+                <div><span class="semi-bold">Mark as</span></div>
+                <!-- <pec-icon name="restore" class="restore-icon"></pec-icon> -->
+                <div><span class="semi-bold padding-read-unread">Read</span></div>
+              </ng-container>
+            </span>
+          </button>
+
+          <button
+            ion-button
+            *ngIf="!isAllList"
+            (click)="markAnnouncementUnread(announcement.AnnouncementId, isAllList, item)"
+            [pecTrackEvent]="{
+              category: 'Announcements View',
+              action: 'Swiped to Read an Announcement',
+              label: '',
+              value: ''
+            }"
+          >
+            <span>
+              <ng-container>
+                <div><span class="semi-bold">Mark as</span></div>
+                <!-- <pec-icon name="restore" class="restore-icon"></pec-icon> -->
+                <div><span class="semi-bold padding-read-unread">Read</span></div>
+              </ng-container>
+            </span>
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ng-container>
+  </ion-list>
+</ng-container>
+<ng-container *ngIf="!(announcementsList && announcementsList.length > 0)">
+  <ion-card class="no-announcements">You don't have any {{ isAllList ? '' : 'unread' }} announcements.</ion-card>
+</ng-container>

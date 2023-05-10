@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>398715294241-5t0f77mmq16h6c7vco48nqfeueonlobg.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.398715294241-5t0f77mmq16h6c7vco48nqfeueonlobg</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>398715294241-i38b2ji1kf8pq28jvhvoakm2j3ontedh.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBsjTIJc-zC4JC-pCUs6KsQvwBqUf18O0o</string>
+	<key>GCM_SENDER_ID</key>
+	<string>398715294241</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>edu.aiuniv.www</string>
+	<key>PROJECT_ID</key>
+	<string>cec-mobile-70f55</string>
+	<key>STORAGE_BUCKET</key>
+	<string>cec-mobile-70f55.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:398715294241:ios:679c315b60b42d1b</string>
+	<key>DATABASE_URL</key>
+	<string>https://cec-mobile-70f55.firebaseio.com</string>
+</dict>
+</plist>

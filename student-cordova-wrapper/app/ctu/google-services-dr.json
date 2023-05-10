@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "173432875800",
+    "firebase_url": "https://ctu-faculty-prod.firebaseio.com",
+    "project_id": "ctu-faculty-prod",
+    "storage_bucket": "ctu-faculty-prod.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:173432875800:android:ec1e5b90808608ca",
+        "android_client_info": {
+          "package_name": "edu.coloradotech.studentmobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "173432875800-2bmetrkmjed3q4sti7ggq28jd9ok5dpe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBITy4VYjJLp-6WUywSklYeNMujVf_z30"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

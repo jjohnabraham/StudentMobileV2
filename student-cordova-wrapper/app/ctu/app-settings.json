@@ -1,0 +1,19 @@
+{
+  "AppConfigurations": {
+    "AppId": "edu.ctu.studentappdev",
+    "AppName": "CTU Student",
+    "AppDescription": "CTU Mobile App",
+    "ResourceDirName": "ctu",
+    "CustomUrlScheme": "ctustudentdev",
+    "UrbanAirshipNotificationAccentColor": "#C00005",
+    "Version": "6.1.0",
+    "Build": "316960",
+    "Patch": "0"
+  },
+
+  "Preferences": {
+    "Url": "http://dev-mobileapi.careered.com/student/app/ctu/assets/loader/dev/",
+    "ThemeId": "9",
+    "Environment":  "dev"
+  }
+}

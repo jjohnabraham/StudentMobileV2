@@ -1,0 +1,39 @@
+<ion-item
+  (click)="openDetailsSlideup()"
+  [pecTrackEvent]="{
+    category: 'Financial Aid View',
+    action: 'Tapped to View Document',
+    label: document.CmDocTypeId.toString(),
+    value: ''
+  }"
+  class="pec-fs-13 pwc-fw-400"
+>
+  <ion-label>
+    <div class="pec-fw-bold">{{ document.Summary }}</div>
+    <div class="doc-department">{{ document.Department }}</div>
+    <div
+      class="doc-info pec-mt-10 pec-d-flex pec-fs-11"
+      *ngIf="!document.DocumentSubmissionDate && (isUrgent || document.DateDue || timeToComplete)"
+    >
+      <ion-badge class="pec-fs-10 pec-fw-300 pec-mr-8 pec-p-3 urgent-badge" *ngIf="isUrgent" mode="md">
+        URGENT
+      </ion-badge>
+      <span class="pec-fw-bold" *ngIf="document.DateDue">Due {{ document.DateDue | pecDate: 'M/d/YY' | async }}</span>
+      <span
+        *ngIf="timeToComplete"
+        class="doc-time-complete pec-pl-10 pec-ml-10"
+        [class.no-due-date]="!document.DateDue"
+      >
+        <i class="pec-icon-clock-android pec-fs-15 pec-mr-5"></i>
+        {{ timeToComplete }}
+      </span>
+    </div>
+    <div
+      class="document-submitted-wrap pec-d-flex pec-fw-bold pec-fs-11 pec-mt-10"
+      *ngIf="document.DocumentSubmissionDate"
+    >
+      <ion-badge class="pec-fs-10 pec-fw-300 pec-mr-8 pec-p-3 submitted-badge" mode="md">SUBMITTED</ion-badge>
+      <span class="pec-fw-bold">on {{ document.DocumentSubmissionDate | pecDate: 'M/d/YY' | async }}</span>
+    </div>
+  </ion-label>
+</ion-item>

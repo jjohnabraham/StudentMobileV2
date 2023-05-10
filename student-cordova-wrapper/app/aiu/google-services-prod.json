@@ -1,0 +1,259 @@
+{
+  "project_info": {
+    "project_number": "398715294241",
+    "firebase_url": "https://cec-mobile-70f55.firebaseio.com",
+    "project_id": "cec-mobile-70f55",
+    "storage_bucket": "cec-mobile-70f55.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398715294241:android:693de8c66799737e",
+        "android_client_info": {
+          "package_name": "edu.aiu.studentappdev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "398715294241-qdvbop9e7aqq4qk46ij718qvf564hrq6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.aiu.studentappdev",
+            "certificate_hash": "fe5b0e77f11d1df13d07e1bb4959b1f34e056ca9"
+          }
+        },
+        {
+          "client_id": "398715294241-o96une45ddk2e52tvlmb9c0vff0t7daq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeA-VkFn-Exrg_XIqsI5WainafGYiWGUY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "398715294241-o96une45ddk2e52tvlmb9c0vff0t7daq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "398715294241-5t0f77mmq16h6c7vco48nqfeueonlobg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "edu.aiuniv.www"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398715294241:android:8e0632f665a346fa",
+        "android_client_info": {
+          "package_name": "edu.aiuniv"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "398715294241-i38b2ji1kf8pq28jvhvoakm2j3ontedh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.aiuniv",
+            "certificate_hash": "fe5b0e77f11d1df13d07e1bb4959b1f34e056ca9"
+          }
+        },
+        {
+          "client_id": "398715294241-o96une45ddk2e52tvlmb9c0vff0t7daq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeA-VkFn-Exrg_XIqsI5WainafGYiWGUY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "398715294241-o96une45ddk2e52tvlmb9c0vff0t7daq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "398715294241-5t0f77mmq16h6c7vco48nqfeueonlobg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "edu.aiuniv.www"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398715294241:android:e72c8ac1facbadf5",
+        "android_client_info": {
+          "package_name": "edu.aiuniv.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "398715294241-o96une45ddk2e52tvlmb9c0vff0t7daq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeA-VkFn-Exrg_XIqsI5WainafGYiWGUY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "398715294241-o96une45ddk2e52tvlmb9c0vff0t7daq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "398715294241-5t0f77mmq16h6c7vco48nqfeueonlobg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "edu.aiuniv.www"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398715294241:android:95bb30c8e68b98bb",
+        "android_client_info": {
+          "package_name": "edu.ctu.studentappdev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "398715294241-r9m6fhrllrr2l8kele4gshb7mf6d8ri7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.ctu.studentappdev",
+            "certificate_hash": "fe5b0e77f11d1df13d07e1bb4959b1f34e056ca9"
+          }
+        },
+        {
+          "client_id": "398715294241-o96une45ddk2e52tvlmb9c0vff0t7daq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeA-VkFn-Exrg_XIqsI5WainafGYiWGUY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "398715294241-o96une45ddk2e52tvlmb9c0vff0t7daq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "398715294241-5t0f77mmq16h6c7vco48nqfeueonlobg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "edu.aiuniv.www"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398715294241:android:84722c46ba58ebc1",
+        "android_client_info": {
+          "package_name": "edu.ctuniv"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "398715294241-q0kttfa63g38jt8cu5prq78j45772a5i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.ctuniv",
+            "certificate_hash": "fe5b0e77f11d1df13d07e1bb4959b1f34e056ca9"
+          }
+        },
+        {
+          "client_id": "398715294241-o96une45ddk2e52tvlmb9c0vff0t7daq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeA-VkFn-Exrg_XIqsI5WainafGYiWGUY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "398715294241-o96une45ddk2e52tvlmb9c0vff0t7daq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "398715294241-5t0f77mmq16h6c7vco48nqfeueonlobg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "edu.aiuniv.www"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398715294241:android:64754ed10ad5537d",
+        "android_client_info": {
+          "package_name": "edu.ctuniv.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "398715294241-o96une45ddk2e52tvlmb9c0vff0t7daq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeA-VkFn-Exrg_XIqsI5WainafGYiWGUY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "398715294241-o96une45ddk2e52tvlmb9c0vff0t7daq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "398715294241-5t0f77mmq16h6c7vco48nqfeueonlobg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "edu.aiuniv.www"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

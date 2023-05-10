@@ -1,0 +1,473 @@
+[class^="pec-icon-"],
+[class*=" pec-icon-"],
+.pec-icon-extension {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "pec-icons" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.pec-icon- {
+  &honors::before {
+    content: "\e900";
+  }
+
+  &arrows_right::before {
+    content: "\e901";
+  }
+
+  &add-circle-android::before {
+    content: "\e902";
+  }
+
+  &add-circle-ios::before {
+    content: "\e903";
+  }
+
+  &arrow-left::before {
+    content: "\e904";
+  }
+
+  &arrow-right::before {
+    content: "\e905";
+  }
+
+  &text-input-clear-icon::before {
+    content: "\e906";
+  }
+
+  &arrow-circle-right::before {
+    content: "\e907";
+  }
+
+  &arrow-circle-left::before {
+    content: "\e908";
+  }
+
+  &thick-chevron-left::before {
+    content: "\e909";
+  }
+
+  &chevron-down::before {
+    content: "\e90a";
+  }
+
+  &chevron-left::before {
+    content: "\e90b";
+  }
+
+  &chevron-right::before {
+    content: "\e90c";
+  }
+
+  &thick-chevron-up::before {
+    content: "\e90d";
+  }
+
+  &thick-chevron-down::before {
+    content: "\e90e";
+  }
+
+  &thick-chevron-right::before {
+    content: "\e90f";
+  }
+
+  &checkmark-ios::before {
+    content: "\e910";
+  }
+
+  &rounded-chevron-left::before {
+    content: "\e911";
+  }
+
+  &checkbox-android::before {
+    content: "\e912";
+  }
+
+  &check-single::before {
+    content: "\e913";
+  }
+
+  &thick-checkmark::before {
+    content: "\e914";
+  }
+
+  &clock-android::before {
+    content: "\e915";
+  }
+
+  &clock-ios::before {
+    content: "\e916";
+  }
+
+  &customize::before {
+    content: "\e917";
+  }
+
+  &alert::before {
+    content: "\e918";
+  }
+
+  &financial-outline::before {
+    content: "\e919";
+  }
+
+  &checkbox-open::before {
+    content: "\e91a";
+  }
+
+  &checkbox-dark::before {
+    content: "\e91b";
+  }
+
+  &home-icon-root::before {
+    content: "\e91c";
+  }
+
+  &home-android::before {
+    content: "\e91d";
+  }
+
+  &home-ios::before {
+    content: "\e91e";
+  }
+
+  &tabbar-messenger-dark::before {
+    content: "\e91f";
+  }
+
+  &chat-dots-dark::before {
+    content: "\e920";
+  }
+
+  &chat-two-square::before {
+    content: "\e96a";
+  }
+
+  &play::before {
+    content: "\e921";
+  }
+
+  &microphone::before {
+    content: "\e922";
+  }
+
+  &announcements::before {
+    content: "\e922";
+  }
+
+  &warning-circle::before {
+    content: "\e923";
+  }
+
+  &warning-triangle::before {
+    content: "\e924";
+  }
+
+  &tabbar-financial::before {
+    content: "\e925";
+  }
+
+  &ADA::before {
+    content: "\e926";
+  }
+
+  &coffee-cup::before {
+    content: "\e927";
+  }
+
+  &tabbar-messenger-outline::before {
+    content: "\e928";
+  }
+
+  &tasks::before {
+    content: "\e929";
+  }
+
+  &thin-x-mark::before {
+    content: "\e92a";
+  }
+
+  &thick-x::before {
+    content: "\e92b";
+  }
+
+  &phone::before {
+    content: "\e92c";
+  }
+
+  &rounded-x::before {
+    content: "\e92d";
+  }
+
+  &rounded-chevron-right::before {
+    content: "\e92e";
+  }
+
+  &check-circle::before {
+    content: "\e92f";
+  }
+
+  &exclamation-mark-dark-circle::before {
+    content: "\e930";
+  }
+
+  &email-android::before {
+    content: "\e931";
+  }
+
+  &email::before {
+    content: "\e932";
+  }
+
+  &email-ios::before {
+    content: "\e933";
+  }
+
+  &notifications-bell::before {
+    content: "\e934";
+  }
+
+  &notifications-android::before {
+    content: "\e935";
+  }
+
+  &notifications-ios::before {
+    content: "\e936";
+  }
+
+  &password-eye::before {
+    content: "\e937";
+  }
+
+  &pencil::before {
+    content: "\e938";
+  }
+
+  &tab-classes::before {
+    content: "\e939";
+  }
+
+  &trash-android::before {
+    content: "\e93a";
+  }
+
+  &trash-ios::before {
+    content: "\e93b";
+  }
+
+  &upload::before {
+    content: "\e93c";
+  }
+
+  &cloud_upload::before {
+    content: "\e93d";
+  }
+
+  &reminder::before {
+    content: "\e93e";
+  }
+
+  &hourglass::before {
+    content: "\e93f";
+  }
+
+  &graduate-cap-fill::before {
+    content: "\e940";
+  }
+
+  &tabbar-home::before {
+    content: "\e941";
+  }
+
+  &class-assessment::before {
+    content: "\e942";
+  }
+
+  &document::before {
+    content: "\e943";
+  }
+
+  &class-discussionboard::before {
+    content: "\e944";
+  }
+
+  &class-group::before {
+    content: "\e945";
+  }
+
+  &class-livemeeting::before {
+    content: "\e946";
+  }
+
+  &class-other::before {
+    content: "\e947";
+  }
+
+  &class-simulation::before {
+    content: "\e948";
+  }
+
+  &online-payment::before {
+    content: "\e949";
+  }
+
+  &refresh::before {
+    content: "\e94a";
+  }
+
+  &tabbar-menu::before {
+    content: "\e94b";
+  }
+
+  &more-threeDots::before {
+    content: "\e94c";
+  }
+
+  &filter::before {
+    content: "\e94d";
+  }
+
+  &binoculars::before {
+    content: "\e94e";
+  }
+
+  &target::before {
+    content: "\e94f";
+  }
+
+  &face::before {
+    content: "\e950";
+  }
+
+  &tab-students::before {
+    content: "\e951";
+  }
+
+  &simulation::before {
+    content: "\e952";
+  }
+
+  &trafficlight::before {
+    content: "\e953";
+  }
+
+  &meeting-pillars::before {
+    content: "\e954";
+  }
+
+  &aiu-logo-pillar::before {
+    content: "\e955";
+  }
+
+  &class-intellipath::before {
+    content: "\e956";
+  }
+
+  &ctu-logo-mtn::before {
+    content: "\e957";
+  }
+
+  &aiu-logo-letters::before {
+    content: "\e958";
+  }
+
+  &aiu-logo-horizontal::before {
+    content: "\e959";
+  }
+
+  &aiu-logo-compact::before {
+    content: "\e95b";
+  }
+
+  &ctu-logo-horizontal::before {
+    content: "\e95a";
+  }
+
+  &ctu-shield::before {
+    content: "\e95c";
+  }
+
+  &beaker::before {
+    content: "\e95d";
+  }
+
+  &lab::before {
+    content: "\e95e";
+  }
+
+  &microscope::before {
+    content: "\e95f";
+  }
+
+  &individual-project::before {
+    content: "\e960";
+  }
+
+  &information::before {
+    content: "\e961";
+  }
+
+  &password-eye-off::before {
+    content: "\e962";
+  }
+
+  &fingerprint::before {
+    content: "\e963";
+  }
+
+  &check-circle-outline::before {
+    content: "\e964";
+  }
+
+  &ellipsis-hz-circle::before {
+    content: "\e965";
+  }
+
+  &exclamation-circle-outline::before {
+    content: "\e966";
+  }
+
+  &degree-fill::before {
+    content: "\e940";
+  }
+
+  &connect-fill::before {
+    content: "\e91f";
+  }
+
+  &financial-aid-fill::before {
+    content: "\e925";
+  }
+
+  &lab-computer::before {
+    content: "\e967";
+  }
+
+  &send::before {
+    content: "\e968";
+  }
+
+  &settings-cog::before {
+    content: "\e969";
+  }
+
+  &list-box::before {
+    content: "\e96b";
+  }
+
+  &virus-icon::before {
+    content: "\e96c";
+  }
+
+  &bolt-icon::before {
+    content: "\e96d";
+  }
+}

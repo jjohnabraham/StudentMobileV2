@@ -1,0 +1,7 @@
+.action-sheet-button {
+  &.disable-btn {
+    cursor: not-allowed;
+    background-color: darkgrey;
+    pointer-events: none;
+  }
+}

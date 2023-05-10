@@ -1,0 +1,28 @@
+<ion-content>
+  <ion-row>
+    <h2 class="pec-fs-18 pec-font-oswald pec-text-center pec-mt-0 pec-mb-10 pec-w-100">
+      Welcome to your AIU {{ class.CourseName }}
+    </h2>
+    <div class="body-content" [innerHTML]="content"></div>
+  </ion-row>
+</ion-content>
+<ion-footer class="challenge-exam-modal">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismissModal()" class="btn-decline">Cancel</ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <span *ngIf="!url" class="preparing-text">Preparing Exam</span>
+      <ion-button
+        *ngIf="url"
+        class="btn-accept"
+        (click)="startExam(); $event.stopPropagation()"
+        pecLmsRedirect
+        pecOpenIn="browser"
+        [pecUrl]="url"
+      >
+        Start Exam
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

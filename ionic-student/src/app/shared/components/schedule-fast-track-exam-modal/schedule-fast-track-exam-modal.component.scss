@@ -1,0 +1,217 @@
+.modal-content-wrap {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+}
+
+.drag-handle {
+  height: 6px;
+  width: 43px;
+  border-radius: 3px;
+  background-color: rgba(30, 32, 35, 0.1);
+  margin: 0 auto 5px auto;
+  display: block;
+}
+
+.ctu-fasttrack-image-info {
+  padding: 30px 20px 30px 20px;
+  text-align: left;
+  display: flex;
+  padding-bottom: 19px; //account for 11 px margin on last radio item
+
+  .ctu-fast-track-logo {
+    margin-right: 17px;
+    background-image: var(--pec-logo-accelerate-fasttrack);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+  }
+
+  .ctu-fast-track-instructions {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: -5px;
+    color: var(--pec-color-black);
+  }
+}
+
+ion-content {
+  font-family: var(--pec-font-body);
+}
+
+ion-item {
+  --inner-border-width: 0;
+}
+
+.fast-track-date-option-div {
+  padding-bottom: 20px; //account for 11 px margin on last radio item
+}
+
+ion-item.fast-track-date-option {
+  --background-focused: transparent;
+  .item-inner {
+    border: none !important;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  ion-radio {
+    --background-focused: transparent;
+    margin-right: 10px !important;
+    margin-left: 60px !important;
+    --color-checked: var(--pec-color-black);
+  }
+
+  ion-label.fast-track-date-option-label {
+    --background-focused: transparent;
+    color: var(--pec-color-black) !important;
+    font-family: var(--pec-font-default-semibold);
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .fast-track-date-na {
+    font-style: italic;
+    color: var(--pec-color-black) !important;
+  }
+}
+
+.primary-button-row {
+  padding: 0 30px 0 30px;
+}
+
+.item-radio ion-label {
+  font-family: var(--pec-font-default-semibold) !important;
+}
+
+.item-radio-checked ion-label {
+  font-family: var(--pec-font-default-bold) !important;
+}
+
+.radio-md.radio-disabled,
+.item-md.item-radio-disabled ion-label {
+  opacity: 0.8;
+  transform: scale3d(1, 1, 1);
+}
+
+.radio-md.radio-disabled .radio-inner {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(188, 188, 188) !important;
+  left: 0;
+  top: 0;
+  transform: scale3d(1, 1, 1);
+}
+
+.radio-md.radio-disabled radio-icon {
+  background-color: gray;
+}
+
+.radio-md.radio-disabled .radio-icon {
+  border-color: rgb(102, 102, 102);
+  background-color: rgb(102, 102, 102);
+}
+
+.grey-avatar-box {
+  font-family: var(--pec-font-open-sans);
+  margin-bottom: 10px;
+  background-color: rgba(30, 32, 35, 0.1);
+  text-align: center;
+  border-radius: 3px;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 600;
+  min-height: 44px;
+  text-transform: capitalize;
+
+  .item-inner {
+    border-bottom: none !important;
+  }
+}
+
+.grey-note {
+  color: var(--pec-color-grey);
+  margin-top: 20px;
+  font-style: italic;
+}
+
+span {
+  color: #4c9ecc;
+}
+
+ion-content {
+  font-family: var(--pec-font-body);
+
+  div {
+    .department-hour-title {
+      color: var(--pec-color-primary);
+      font-family: var(--pec-font-body);
+      font-size: 13px;
+      padding: 10px;
+      margin-bottom: 0;
+    }
+
+    .office-hour {
+      padding: 0;
+      font-size: 13px;
+      margin-top: 0;
+    }
+  }
+}
+
+ion-backdrop {
+  visibility: visible;
+  z-index: 8;
+}
+
+ion-row {
+  &.modal-buffer {
+    flex-grow: 100;
+    --background: var(--pec-color-primary) !important;
+  }
+  &.modal-content-wrap {
+    background-color: #fff;
+    border-radius: 8px 8px 0 0;
+    z-index: 10;
+    ion-col {
+      // this is for iphone X
+      @media only screen and (min-device-width: 375px) and (min-device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+        padding-bottom: 30px !important;
+      }
+    }
+  }
+  .row {
+    align-items: center;
+  }
+}
+
+ion-item {
+  ion-label {
+    margin: 0;
+    display: block;
+    overflow: hidden;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    font-size: inherit;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: 10px;
+    color: var(--pec-color-dark);
+  }
+}
+
+.dark-text {
+  color: var(--pec-color-dark);
+}
+
+.image.ion-img.img::part(image) {
+  border-radius: 3px;
+  height: 69px;
+  width: 100%;
+}

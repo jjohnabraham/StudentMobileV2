@@ -1,0 +1,29 @@
+<ion-content forceOverscroll="false" class="error-page" [pecTrackView]="{ view: errTrackingViewName }">
+  <div class="error-header-image pec-mt-30 pec-text-center">
+    <i class="pec-mx-auto pec-text-primary" [class]="errHeaderImg" [attr.aria-label]="errHeaderImgAlt"></i>
+  </div>
+  <h1 class="pec-font-headline pec-text-dark pec-fw-400 pec-mt-20 pec-mb-10 pec-fs-26">
+    {{ errTitle }}
+  </h1>
+  <h4 [innerHTML]="errMessage | pecSafeHtml" class="pec-fs-20 pec-mt-16 pec-mb-10"></h4>
+  <ion-button
+    class="pec-button-primary"
+    (click)="reloadPage()"
+    [pecTrackEvent]="{ category: 'Connectivity Error', action: 'Tapped Retry', label: '', value: '' }"
+  >
+    Retry
+  </ion-button>
+  <ion-button
+    class="pec-button-primary"
+    (click)="emailComposerCall()"
+    [pecTrackEvent]="{ category: 'Connectivity Error', action: 'Tapped Send Error Report', label: '', value: '' }"
+  >
+    Send Error
+    <br />
+    Report
+  </ion-button>
+  <p *ngIf="errCode" class="pec-text-dark pec-fs-17 pec-fw-400 pec-mx-30">
+    <b>CODE:</b>
+    {{ errCode }}
+  </p>
+</ion-content>

@@ -1,0 +1,58 @@
+<ion-content forceOverscroll="false" class="device-padding-top" [pecTrackView]="{ view: 'App Home' }">
+  <ion-refresher slot="fixed" (ionRefresh)="refreshPage($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <pec-loading class="fade-up" [class.fade-up-show]="showLoading"></pec-loading>
+  <pec-mini-id-card [userInfo]="user"></pec-mini-id-card>
+  <pec-degree-card
+    [isDegreePage]="false"
+    class="pec-m-25"
+    [pecTrackEvent]="{
+      category: 'App Home',
+      action: 'Tapped to View Degree Plan View ',
+      label: '',
+      value: ''
+    }"
+  ></pec-degree-card>
+  <ng-container *ngIf="classList && classList.length">
+    <div *ngFor="let class of classList">
+      <pec-class-card [classInfo]="class" [isHomePage]="true" [isClassroomPage]="false"></pec-class-card>
+    </div>
+  </ng-container>
+  <ion-card
+    *ngIf="user && (!user.CurrentClasses || user.CurrentClasses.length == 0)"
+    class="pec-noclass-card"
+    name="home-noclass-card"
+    data-cecname="home-noclass-card"
+  >
+    <ion-card-content>
+      <span class="semi-bold">{{ noClassesMessage }}</span>
+    </ion-card-content>
+  </ion-card>
+  <ng-container *ngIf="contactList && contactList.length">
+    <ion-card name="home-contact-card" data-cecname="home-contact-card" class="cec-contact-card">
+      <ion-card-header class="smaller-header">
+        <span class="contact-header">CONTACTS</span>
+        <button class="grey-solid-button" (click)="navigateToContacts()">View All</button>
+      </ion-card-header>
+      <ion-grid>
+        <ion-row *ngFor="let contact of contactList" class="pec-mb-5">
+          <ion-col>
+            <pec-contact-box
+              [contactInfo]="contact"
+              [pecTrackEvent]="{
+                category: 'App Home',
+                action: 'Tapped to View Contact',
+                label:
+                  contact.DisplayName == 'Student Advisor' || contact.DisplayName == 'Success Coach'
+                    ? 'Academic Advisor'
+                    : contact.ContactGroup,
+                value: ''
+              }"
+            ></pec-contact-box>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </ng-container>
+</ion-content>

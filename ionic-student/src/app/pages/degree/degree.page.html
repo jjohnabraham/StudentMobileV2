@@ -1,0 +1,198 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        class="pec-back-button"
+        [text]="''"
+        [icon]="''"
+        *ngIf="previousView"
+        [defaultHref]="previousView"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title>Degree Plan</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [pecTrackView]="{ view: 'Degree Plan View' }" #content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ng-container *ngIf="!showError">
+    <pec-degree-card
+      [transferCourses]="transferCourses"
+      [isDegreePage]="true"
+      (loadedChanged)="degreeCardLoadedChanged($event)"
+      (errorOnLoad)="degreeCardLoadedError($event)"
+      class="pec-m-25"
+      [style.visibility]="degreeLoaded ? 'visible' : 'hidden'"
+    ></pec-degree-card>
+    <ion-list class="pec-mx-n25" #list *ngIf="degreeLoaded">
+      <ion-list-header>
+        <ion-segment
+          [(ngModel)]="upcomingOrcomplete"
+          (ionChange)="upcomingOrcompleteChanged()"
+          color="primary"
+          mode="md"
+        >
+          <ion-segment-button
+            value="upcoming"
+            aria-label="Current"
+            [pecTrackEvent]="{ category: 'Degree Plan View', action: 'Tapped Current Filter', label: '', value: '' }"
+          >
+            Current
+          </ion-segment-button>
+          <ion-segment-button
+            value="complete"
+            aria-label="Completed"
+            [pecTrackEvent]="{ category: 'Degree Plan View', action: 'Tapped Completed Filter', label: '', value: '' }"
+          >
+            Completed
+          </ion-segment-button>
+        </ion-segment>
+      </ion-list-header>
+      <pec-loading class="fade-up" [class.fade-up-show]="showLoading"></pec-loading>
+      <div [ngSwitch]="upcomingOrcomplete" class="pec-m-25">
+        <div *ngSwitchCase="'upcoming'" ngSelected="selected">
+          <ion-card *ngIf="hasNoScheduledClassesToShow">
+            <ion-card-content>
+              <span class="semi-bold pec-opensans">
+                You have no scheduled classes to display. Tap "Contacts" to reach your
+                {{ globalConfigs.themeId === 9 ? 'success coach' : 'student advisor' }} with questions.
+              </span>
+            </ion-card-content>
+          </ion-card>
+
+          <div *ngIf="fastTrackScheduledExamsList && fastTrackScheduledExamsList.length">
+            <pec-degree-course-expander
+              header="SCHEDULED FAST TRACK EXAMS"
+              [expandState]="fastTrackState"
+              (expandChange)="toggleFastTrackSection()"
+            ></pec-degree-course-expander>
+            <div class="pec-hidden-card {{ fastTrackState ? 'open' : 'close' }}">
+              <pec-ft-exam-card
+                *ngFor="let exam of fastTrackScheduledExamsList"
+                [exam]="exam"
+                id="{{ 'ftcard-' + exam.Description }}"
+              ></pec-ft-exam-card>
+            </div>
+          </div>
+
+          <div *ngIf="upcomingCourseList && upcomingCourseList.length">
+            <div *ngFor="let term of upcomingCourseList; index as i">
+              <pec-degree-course-expander
+                [header]="term.Description"
+                [expandState]="term.open"
+                content="{{ term.StartDate | pecDate: 'MMMM d' | async }} - {{
+                  term.EndDate | pecDate: 'MMMM d' | async
+                }}"
+                (expandChange)="toggleSection(i)"
+              ></pec-degree-course-expander>
+              <div class="pec-hidden-card {{ term.open ? 'open' : 'close' }}">
+                <pec-class-card
+                  *ngFor="let course of term.Classes"
+                  [isHomePage]="false"
+                  [isDegreePage]="true"
+                  [isFutureCourse]="false"
+                  [course]="course"
+                  (examScheduled)="onFTExamScheduled($event)"
+                  (tapOnNotAccessibleFastTrackOrAccelerate)="tapOnNotAccessibleFastTrackOrAccelerate(course)"
+                ></pec-class-card>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="futureCourseList && futureCourseList.length">
+            <pec-degree-course-expander
+              *ngIf="futureCourseList"
+              header="FUTURE COURSES"
+              [expandState]="state"
+              (expandChange)="toggleFutureSection()"
+            ></pec-degree-course-expander>
+            <div *ngFor="let term of futureCourseList">
+              <div class="pec-hidden-card {{ state ? 'open' : 'close' }}">
+                <pec-class-card
+                  *ngFor="let course of term.Classes"
+                  [isHomePage]="false"
+                  [isDegreePage]="true"
+                  [course]="course"
+                  [isFutureCourse]="true"
+                  (examScheduled)="onFTExamScheduled($event)"
+                  (tapOnNotAccessibleFastTrackOrAccelerate)="tapOnNotAccessibleFastTrackOrAccelerate(course)"
+                ></pec-class-card>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngSwitchCase="'complete'">
+          <ion-card *ngIf="hasNoCompletedClassesForThisEnrollment">
+            <ion-card-content>
+              <span class="semi-bold pec-opensans">You have completed no classes for this enrollment.</span>
+            </ion-card-content>
+          </ion-card>
+
+          <div *ngIf="completedCourseList && completedCourseList.length">
+            <div *ngFor="let term of completedCourseList; index as i">
+              <pec-degree-course-expander
+                [header]="term.Description"
+                content="{{ term.StartDate | pecDate: 'MMMM d' | async }} - {{
+                  term.EndDate | pecDate: 'MMMM d' | async
+                }}"
+                [icon]="getHonorIconText(term.StudentHonorsType)"
+                [iconLabel]="getHonorIconText(term.StudentHonorsType, false)"
+                [expandState]="term.open"
+                (expandChange)="toggleCompletedSection(i)"
+              ></pec-degree-course-expander>
+
+              <div class="pec-hidden-card {{ term.open ? 'open' : 'close' }}">
+                <pec-class-card
+                  *ngFor="let course of term.Classes"
+                  [isHomePage]="false"
+                  [isDegreePage]="true"
+                  [accessGradesOnClick]="true"
+                  [course]="course"
+                  [isFutureCourse]="true"
+                  [isCompletedCourse]="true"
+                  [showContactAndGrades]="true"
+                  (accessGrades)="accessGrades($event, course)"
+                  (examScheduled)="onFTExamScheduled($event)"
+                  (tapOnNotAccessibleFastTrackOrAccelerate)="tapOnNotAccessibleFastTrackOrAccelerate(course)"
+                  [pecTrackEvent]="{
+                    category: 'Degree Plan View',
+                    action: 'Tapped to View Completed Course Info ',
+                    label: 'Assignments',
+                    value: '',
+                    classId: course.LmsClassId
+                  }"
+                ></pec-class-card>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="otherCourseList && otherCourseList.length">
+            <pec-degree-course-expander
+              header="OTHER CREDIT SOURCES"
+              [expandState]="otherCourseState"
+              (expandChange)="toggleOtherCourseSection()"
+            ></pec-degree-course-expander>
+
+            <div class="pec-hidden-card {{ otherCourseState ? 'open' : 'close' }}">
+              <pec-class-card
+                *ngFor="let course of otherCourseList"
+                [isHomePage]="false"
+                [isDegreePage]="true"
+                [course]="course"
+                [isFutureCourse]="true"
+                [isOtherCourse]="true"
+                [showContactAndGrades]="true"
+                (examScheduled)="onFTExamScheduled($event)"
+                (tapOnNotAccessibleFastTrackOrAccelerate)="tapOnNotAccessibleFastTrackOrAccelerate(course)"
+              ></pec-class-card>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ion-list>
+  </ng-container>
+  <ng-container *ngIf="showError">
+    <pec-error-api [errCode]="errorCodeMessage"></pec-error-api>
+  </ng-container>
+</ion-content>

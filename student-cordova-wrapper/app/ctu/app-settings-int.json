@@ -1,0 +1,16 @@
+{
+  "AppConfigurations": {
+    "AppId": "edu.ctu.studentappint",
+    "AppName": "CTU Student INT",
+    "AppDisplayName": "CTU&#x2007;Student&#x2007;INT",
+    "CustomUrlScheme": "ctustudentint",
+    "UrbanAirshipAppKey": "So9_hFJ4R3-Z-7wW4lNICA",
+    "UrbanAirshipAppSecret": "nyEjfy6YRymZPR8eBYSzSg",
+    "UrbanAirshipGcmSenderId": "924718124336"
+  },
+
+  "Preferences": {
+    "Url": "https://int-studentapp.careered.com/app/ctu/assets/",
+    "Environment": "int"
+  }
+}

@@ -1,0 +1,18 @@
+def minSdkVersion = 21
+def maxSdkVersion = 32
+ext.cdvMinSdkVersion = minSdkVersion
+ext.compileSdkVersion = maxSdkVersion
+
+ext.cdvBuildMultipleApks=false
+
+//crosswalk settings for android
+configurations {
+    all*.exclude group: 'com.google.guava', module: 'listenablefuture'
+}
+
+android { 
+    flavorDimensions "default"
+    defaultConfig {
+        multiDexEnabled true
+    }	
+}

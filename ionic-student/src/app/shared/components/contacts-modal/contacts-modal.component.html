@@ -1,0 +1,56 @@
+<ion-row class="modal-buffer" (click)="dissmissModal()"></ion-row>
+<ion-row *ngIf="contactInfo" class="modal-content-wrap">
+  <ion-col>
+    <div class="drag-handle" tappable (click)="dissmissModal()"></div>
+    <div class="contact-image-info">
+      <pec-contact-image-card
+        [class]="imageClass"
+        *ngIf="contactInfo"
+        [contactInfo]="contactInfo"
+      ></pec-contact-image-card>
+      <!-- <mycontacts-profileimage-card [contact]="contact"></mycontacts-profileimage-card> -->
+      <h6 [class.department-contact]="contactInfo.IsDepartment">
+        {{ displayName }}
+      </h6>
+      <h6 [class.contact-name]="contactInfo.Name" *ngIf="contactInfo.Name">
+        {{ contactInfo.Name }}
+      </h6>
+      <h6
+        *ngIf="(contactInfo.ClassId || contactInfo.ClassId != 0) && contactInfo.NextOfficeHours && officeHrs.length > 0"
+        class="office-hour-title"
+      >
+        Office Hours:
+      </h6>
+      <ng-container *ngIf="officeHrs">
+        <ng-container *ngFor="let item of officeHrs">
+          <!-- <h6 *ngIf="getDetails || classId" class="office-hour">{{ item }}</h6> -->
+          <h6 class="office-hour">{{ item.officeDay }}</h6>
+        </ng-container>
+      </ng-container>
+      <!--<h6 *ngIf="!staffId || staffId  == 0">Department Hours:</h6>-->
+    </div>
+    <ion-button
+      *ngIf="contactInfo.Phone && contactInfo.Phone.trim().length > 0"
+      class="pec-button-grey phone-btn"
+      (click)="trackEventPhoneTap()"
+      [href]="phoneUrl"
+    >
+      <ion-label>
+        Call:
+        <a>{{ displayedPhoneNumber }}</a>
+      </ion-label>
+    </ion-button>
+    <ion-button *ngIf="contactInfo.EmailAddress && contactInfo.EmailAddress.trim().length > 0" class="pec-button-grey">
+      <ion-label>
+        Email:
+        <span class="dark-text email" (click)="openDefaultEmailClient()">{{ contactInfo.EmailAddress }}</span>
+      </ion-label>
+    </ion-button>
+    <ion-button *ngIf="messengerEnabled" class="pec-button-grey" (click)="navigateToChat()">
+      <span class="dark-text">Message</span>
+    </ion-button>
+    <ion-button class="pec-button-grey" (click)="dissmissModal()">
+      <span class="dark-text">Cancel</span>
+    </ion-button>
+  </ion-col>
+</ion-row>

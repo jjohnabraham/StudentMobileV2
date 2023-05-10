@@ -1,0 +1,28 @@
+<ion-card>
+  <ion-card-header class="standard-header border-bottom">
+    <span class="ion-text-uppercase" [class.text-success]="status == 2" [class.text-error]="status == 3">
+      <i class="pec-icon-thick-checkmark" *ngIf="status == 2"></i>
+      {{ statusHeader }}
+    </span>
+  </ion-card-header>
+  <ion-grid>
+    <ion-row class="status-description">
+      <ion-col>{{ statusDescription }}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button
+          [routerLink]="['employment-form']"
+          class="pec-button-grey"
+          *ngIf="status != 3"
+          [pecTrackEvent]="{ category: 'Graduate File View', action: 'Tapped Start', label: '', value: '' }"
+        >
+          <span>{{ startFileButton }}</span>
+        </ion-button>
+        <ion-button *ngIf="status == 3" class="pec-button-grey" (click)="retryFormSubmission()">
+          <span>Retry</span>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-card>

@@ -1,0 +1,35 @@
+<ion-row class="dismiss-row" (click)="dismissed()"></ion-row>
+<ion-content class="modal-wrapper" forceOverscroll="false">
+  <ion-row class="pec-font-default-semibold pec-fs-18 pec-fw-400 pec-px-30 pec-mb-0 modal-header">
+    <ion-col class="pec-p-0">
+      <span class="header-title">ASSIGNMENTS</span>
+    </ion-col>
+    <ion-col class="pec-d-flex pec-d-justify-content-end pec-d-align-items-center pec-p-0">
+      <ion-button class="pec-m-0 pec-fs-18" color="primary" fill="clear" (click)="dismissed()">Done</ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row class="pec-px-20 pec-py-15 modal-selector">
+    <ion-col>
+      <ion-button
+        (click)="classroomView = 'unitview'"
+        shape="round"
+        expand="block"
+        class="pec-m-0 pec-fs-13 pec-fw-600"
+        [class.unselected]="classroomView != 'unitview'"
+      >
+        GROUP BY UNIT
+      </ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button
+        (click)="classroomView = 'alllist'"
+        shape="round"
+        expand="block"
+        class="pec-m-0 pec-fs-13 pec-fw-600"
+        [class.unselected]="classroomView != 'alllist'"
+      >
+        LIST ALL
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

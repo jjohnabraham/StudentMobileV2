@@ -1,0 +1,8 @@
+<ion-content [forceOverscroll]="false">
+  <ion-buttons class="pec-d-justify-content-end pec-w-100">
+    <ion-button (click)="closePage()" aria-label="Close page">
+      <i aria-hidden="true" class="pec-icon-thick-x pec-text-grey pec-fs-16"></i>
+    </ion-button>
+  </ion-buttons>
+  <pec-iframe *ngIf="url" [url]="url" [ready]="true"></pec-iframe>
+</ion-content>

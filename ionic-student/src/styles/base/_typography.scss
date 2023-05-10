@@ -1,0 +1,75 @@
+// @import "roboto";
+// @import "noto-sans";
+//Fonts
+//Example: .pec-bg-font-24
+.#{$font-class-prefix} {
+  @include generate-class(
+    $map: $fonts-map,
+    $attribute: (
+      'font-family',
+    )
+  );
+}
+
+//Font Size
+//Example: .pec-bg-fs-24
+.#{$font-size-class-prefix} {
+  @include generate-class(
+    $map: $font-size-map,
+    $attribute: (
+      'font-size',
+    )
+  );
+}
+
+//Font Weight
+//Example: .pec-bg-fw-300
+.#{$font-weight-class-prefix} {
+  @include generate-class(
+    $map: $font-weight-map,
+    $attribute: (
+      'font-weight',
+    )
+  );
+}
+
+//Line Height
+//Example: .pec-bg-fw-300
+.#{$line-height-class-prefix} {
+  @include generate-class(
+    $map: $line-height-map,
+    $attribute: (
+      'line-height',
+    )
+  );
+}
+
+.#{$all-class-prefix}text-center {
+  text-align: center;
+}
+
+.#{$all-class-prefix}text-right {
+  text-align: right;
+}
+
+.#{$all-class-prefix}text- {
+  &white-space-no-wrap {
+    white-space: nowrap !important;
+  }
+}
+
+.#{$all-class-prefix}text-tr-up {
+  text-transform: uppercase  !important;
+}
+
+.#{$all-class-prefix}text-tr-ini {
+  text-transform: initial;
+}
+
+.#{$all-class-prefix}text-spacing-0 {
+  letter-spacing: 0;
+}
+
+.#{$all-class-prefix}font-style-italic {
+  font-style: italic;
+}

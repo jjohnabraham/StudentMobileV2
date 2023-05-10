@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "924718124336",
+    "firebase_url": "https://student-mobile-dev-projects.firebaseio.com",
+    "project_id": "student-mobile-dev-projects",
+    "storage_bucket": "student-mobile-dev-projects.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:924718124336:android:1112515b307778041d4cf5",
+        "android_client_info": {
+          "package_name": "edu.ctu.studentappreg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "924718124336-eg5gnii0ojkq5247v4bbuic2k7jq3ii4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcbsPFfbWF5bUdQquyF23Vo40X9rtEAms"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "924718124336-eg5gnii0ojkq5247v4bbuic2k7jq3ii4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "924718124336-0qfsk2j8du8cuid56e92ruhsj4vg1826.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "edu.ctu.studentappreg"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

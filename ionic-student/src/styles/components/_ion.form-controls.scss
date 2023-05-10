@@ -1,0 +1,243 @@
+﻿@import "src/styles/base/icons";
+
+.pec-form-control {
+  border: 2px solid #dbdbdb;
+  border-radius: 2px;
+  padding: 6px 10px 6px 8px;
+  height: 34px;
+  font-family: var(--pec-font-body);
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.pec-form-control-invalid {
+  border-color: var(--pec-color-red-invalid);
+  background-color: var(--pec-color-red-invalid-bg);
+}
+
+.pec-form-control-focus {
+  border-color: var(--pec-color-blue-focused);
+  background-color: var(--pec-color-blue-focused-bg);
+}
+
+.pec-valid-icon,
+.pec-invalid-icon {
+  @extend .pec-icon-extension;
+
+  position: absolute;
+  font-size: 22px;
+  right: 12px;
+  top: 6px;
+}
+
+.pec-valid-icon {
+  content: "";
+  color: var(--pec-color-light-green);
+}
+
+.pec-invalid-icon {
+  content: "";
+  color: var(--pec-color-danger);
+}
+
+ion-item.pec-form-input {
+  --min-height: 34px;
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  --border-width: 0;
+  --highlight-height: 0;
+  --inner-border-width: 0;
+  --highlight-color-valid: transparent;
+  --highlight-color-invalid: transparent; 
+  font-size: inherit;
+  font-weight: inherit;
+  min-height: auto;
+
+  ion-select {
+    @extend .pec-form-control;
+    --placeholder-color: var(--pec-color-muted-grey);
+    --placeholder-opacity: 1;
+    width: 100%;
+
+    .select-placeholder {
+      color: var(--pec-color-muted-grey);
+    }
+
+    &::part(icon) {
+      display: none;
+    }
+
+    &:after {
+      @extend .pec-icon-extension;
+      color: var(--pec-color-label-grey);
+      content: "";
+      font-size: 14px;
+    }
+
+    &.ng-valid.ng-dirty:after {
+      @extend .pec-valid-icon;
+    }
+
+    &.ng-invalid.ng-touched {
+      @extend .pec-form-control-invalid;
+
+      &:after {
+        @extend .pec-invalid-icon;
+      }
+    }
+  }
+
+  ion-text {
+    padding: 8px 10px 6px 8px;
+    height: 34px;
+    font-family: var(--pec-font-body);
+    font-size: 12px;
+    font-weight: normal;
+    width: 100%;
+
+     textarea {
+      margin: 0;
+      resize: none;
+    }
+
+    &.ng-valid.ng-dirty:after {
+      @extend .pec-icon-extension;
+      @extend .pec-valid-icon;
+      right: 10px;
+      top: 4px;
+    }
+
+    &.ng-invalid.ng-touched {
+      @extend .pec-form-control-invalid;
+
+      &:after {
+        @extend .pec-icon-extension;
+        @extend .pec-invalid-icon;
+        right: 10px;
+        top: 4px;
+      }
+    }
+  }
+
+  ion-textarea {
+    @extend .pec-form-control;
+    --padding-top: 0;
+    --padding-bottom: 0;
+    min-height: 83px;
+    padding-right: 33px;
+    caret-color: var(--pec-color-dark);
+
+    textarea {
+      margin: 0;
+      resize: none;
+    }
+
+    &.ng-valid.ng-dirty:after {
+      @extend .pec-icon-extension;
+      @extend .pec-valid-icon;
+    }
+
+    &.ng-invalid.ng-touched {
+      @extend .pec-form-control-invalid;
+
+      &:after {
+        @extend .pec-icon-extension;
+        @extend .pec-invalid-icon;
+      }
+    }
+  }
+
+  ion-input {
+    @extend .pec-form-control;
+    --padding-top: 6px;
+    --padding-end: 10px;
+    --padding-bottom: 6px;
+    --padding-start: 8px !important;
+    caret-color: var(--pec-color-dark);
+
+    input {
+      margin: 0;
+      line-height: 19px;
+      padding-right: 20px;
+    }
+
+    &.ng-valid.ng-dirty:after {
+      @extend .pec-icon-extension;
+      @extend .pec-valid-icon;
+
+      right: 10px;
+      top: 4px;
+    }
+
+    &.ng-invalid.ng-touched {
+      @extend .pec-form-control-invalid;
+
+      &:after {
+        @extend .pec-icon-extension;
+        @extend .pec-invalid-icon;
+
+        right: 10px;
+        top: 4px;
+      }
+    }
+  }
+
+  &.item-has-focus {
+    ion-input {
+      @extend .pec-form-control-focus;
+    }
+
+    ion-textarea {
+      @extend .pec-form-control-focus;
+    }
+  }
+}
+
+label {
+  &.pec-label-error {
+    color: var(--pec-color-danger);
+    font-weight: 600;
+  }
+
+  &.pec-input-label {
+    font-family: var(--pec-font-body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: -0.22px;
+    line-height: 1.3;
+    white-space: normal;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: inline-block;
+
+    &.pec-mb-0 {
+      margin-bottom: 0;
+    }
+
+    &.text-muted {
+      text-transform: none;
+    }
+
+    &.pec-label-error {
+      color: var(--pec-color-danger);
+      font-weight: 600;
+    }
+  }
+}
+
+form {
+  ion-col {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+}
+
+.alert-ios [aria-checked="true"] {
+  .alert-radio-label {
+    color: var(--pec-color-ios-blue);
+  }
+
+  .alert-radio-inner {
+    border-color: var(--pec-color-ios-blue);
+  }
+}

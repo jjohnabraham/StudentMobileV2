@@ -1,0 +1,116 @@
+@import "src/styles/base/icons";
+
+ion-fab {
+  ion-fab-button {
+    --transition: none;
+
+    &::part(close-icon) {
+      display: none;
+    }
+  }
+
+  ion-fab-list {
+    pointer-events: none;
+
+    ion-fab-button {
+      pointer-events: auto;
+    }
+
+    .fab-label {
+      pointer-events: none;
+    }
+  }
+
+  ion-badge {
+    border: 2px solid #fff;
+    top: 16px;
+    left: 31px;
+    display: block;
+    height: 12px;
+    width: 12px;
+    min-width: 8px;
+    min-height: 8px;
+    padding: 0;
+    margin: 0;
+    border-radius: 50% !important;
+    position: absolute;
+    overflow: hidden;
+  }
+
+  .fab-label {
+    font-family: -apple-system, "Helvetica Neue", Roboto, sans-serif;
+    display: block;
+    position: absolute;
+    width: 100%;
+    bottom: 52px;
+    text-align: center;
+    white-space: nowrap;
+    word-break: normal;
+    word-wrap: normal;
+    color: var(--pec-color-white);
+    letter-spacing: -0.22px;
+    pointer-events: none;
+  }
+
+  .fab-top-left {
+    position: absolute;
+    right: 40px;
+    bottom: 75px;
+
+    .fab-label {
+      top: 62px;
+    }
+  }
+
+  .fab-top-right {
+    position: absolute;
+    left: 40px;
+    bottom: 75px;
+
+    .fab-label {
+      top: 62px;
+      right: 2px;
+    }
+  }
+
+  .fab-list-side-left {
+    position: absolute;
+    right: 110px;
+    top: -145px;
+
+    .fab-label {
+      top: 58px;
+      right: 23px;
+    }
+  }
+
+  .fab-list-side-right {
+    position: absolute;
+    left: 110px;
+    top: -145px;
+
+    .fab-label {
+      top: 58px;
+      left: -10px;
+    }
+  }
+
+  .pec-icon-thick-x {
+    position: absolute;
+    top: 19px;
+    left: 19px;
+    pointer-events: none;
+  }
+}
+
+.theme-18 {
+  ion-badge {
+    background-color: var(--pec-color-secondary-warning) !important;
+  }
+}
+
+.theme-9 {
+  ion-badge {
+    background-color: var(--pec-color-primary) !important;
+  }
+}

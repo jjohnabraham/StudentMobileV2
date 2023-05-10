@@ -1,0 +1,7 @@
+<pec-popover-container
+  [title]="holds.Title"
+  [message]="holds.Message"
+  [buttons]="[{ label: 'OK' }]"
+  (buttonClick)="onButtonClick($event)"
+  (closeClick)="onPopoverCloseClick()"
+></pec-popover-container>

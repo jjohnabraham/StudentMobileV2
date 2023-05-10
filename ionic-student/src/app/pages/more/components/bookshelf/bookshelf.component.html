@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        *ngIf="previousView"
+        [defaultHref]="previousView"
+        class="pec-back-button"
+        [text]="''"
+        [icon]="''"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div>Bookshelf</div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content forceOverscroll="false" [pecTrackView]="{ view: 'Bookshelf View' }">
+  <ion-refresher (ionRefresh)="doRefresh($event)" slot="fixed">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <pec-loading *ngIf="showLoading"></pec-loading>
+  <ion-list>
+    <ion-list-header class="books-and-guides">
+      <ion-label class="pec-d-flex pec-d-justify-content-between">
+        <span>{{ bookshelf ? bookshelf.length : '0' }} BOOKS & GUIDES</span>
+        <span
+          (click)="presentSortModal()"
+          [pecTrackEvent]="{
+            category: 'Bookshelf View',
+            action: 'Tapped to View Sorting Option',
+            label: '',
+            value: ''
+          }"
+        >
+          SORTED BY:
+          <span class="ion-text-uppercase sorted-link">{{ sortOrder }}</span>
+        </span>
+      </ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let book of bookshelf">
+      <button
+        class="bookshelf-redirect"
+        pecUrlRedirect
+        pecOpenIn="browser"
+        [pecUrl]="book.Url"
+        [pecTrackEvent]="{
+          category: 'Bookshelf View',
+          action:
+            book.MaterialType == 'Guide'
+              ? 'Tapped to Access Lib Guide '
+              : book.MaterialType == 'e-Book - BvD'
+              ? 'Tapped to Access BVD Book'
+              : 'Tapped to Access Vital Source Book',
+          label: book.ISBN,
+          value: ''
+        }"
+      >
+        <ion-grid>
+          <ion-row class="bookshelf-title">
+            <div [ngClass]="{ 'book-title': book.ItalicizedTitle, 'nonbook-title': !book.ItalicizedTitle }">
+              {{ book.Title }}
+              <span *ngIf="book.ItalicizedTitle">by {{ book.Author }}</span>
+            </div>
+            <ng-container *ngIf="!book.ItalicizedTitle">by {{ book.Author }}</ng-container>
+          </ion-row>
+          <ion-row class="bookshelf-term">Term {{ book.TermCode }}</ion-row>
+          <ion-row class="pec-font-default-semibold bookshelf-course">
+            {{ book.CourseName }} ({{ book.CourseCode }})
+          </ion-row>
+        </ion-grid>
+      </button>
+      <span slot="end" *ngIf="globalConfigs.isIos">
+        <i class="pec-icon-chevron-right pec-fs-16 pec-text-light-grey"></i>
+      </span>
+    </ion-item>
+  </ion-list>
+  <ion-card class="pec-m-0 pec-p-25 no-reading-assignment" *ngIf="bookshelf && bookshelf.length <= 0">
+    <ion-card-content>
+      <p>There are no books or guides to display.</p>
+    </ion-card-content>
+  </ion-card>
+  <div *ngIf="uniquePMIArray && uniquePMIArray.length > 0" class="pec-pl-30 pec-pt-16 pec-pr-16">
+    <div *ngFor="let book of uniquePMIArray">
+      <div class="bookshelf-pmi" *ngIf="book" [innerHTML]="book | pecSafeHtml"></div>
+    </div>
+  </div>
+</ion-content>

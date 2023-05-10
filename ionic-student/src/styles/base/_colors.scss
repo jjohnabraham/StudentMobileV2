@@ -1,0 +1,17 @@
+.#{$text-color-class-prefix} {
+  @include generate-class(
+    $map: $color-map,
+    $attribute: (
+      "color",
+    )
+  );
+}
+
+.#{$background-color-class-prefix} {
+  @include generate-class(
+    $map: $background-color-map,
+    $attribute: (
+      "background-color",
+    )
+  );
+}

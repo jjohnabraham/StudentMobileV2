@@ -1,0 +1,10 @@
+# .tfignore
+\changeList.json
+\[Pp]lugins
+\[Pp]latforms
+\[Bb]ld
+\bin
+\node_modules
+\[Ss]cripts
+\app-setting.xml
+\config.xml

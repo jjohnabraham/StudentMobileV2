@@ -1,0 +1,55 @@
+<ion-header *ngIf="!showError">
+  <ion-toolbar>
+    <ion-title>Financial Aid</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [class.error-page]="showError" [pecTrackView]="{ view: 'Financial Aid View' }">
+  <ng-container *ngIf="!showError">
+    <pec-loading *ngIf="showPageLoading"></pec-loading>
+    <ng-container *ngIf="!showPageLoading">
+      <pec-financial-aid-notpackaged
+        [isPackaged]="isPackaged"
+        [notYetPackagedActions]="notYetPackagedActions"
+      ></pec-financial-aid-notpackaged>
+
+      <pec-financial-aid-overview
+        *ngIf="isPackaged === true || IsPackagedMessage"
+        [faStatuses]="faStatuses"
+        [displayOrder]="displayOrder"
+        [isPackagedMessage]="IsPackagedMessage"
+      ></pec-financial-aid-overview>
+
+      <pec-financial-aid-document
+        [isPackaged]="isPackaged"
+        [requiredActions]="requiredActions"
+        [submittedActions]="submittedActions"
+      ></pec-financial-aid-document>
+
+      <pec-non-required-fa-documents [nonRequiredActions]="requestedNotRequiredActions"></pec-non-required-fa-documents>
+
+      <pec-financial-aid-award
+        (loadingFinished)="clearLoading()"
+        (errorOnLoad)="onError($event)"
+        (viewAllAwardClicked)="navigateToAllAwards()"
+      ></pec-financial-aid-award>
+
+      <pec-financial-aid-payments
+        [isPackaged]="isPackaged"
+        (loadingFinished)="clearLoading()"
+        (errorOnLoad)="onError($event)"
+      ></pec-financial-aid-payments>
+      <pec-financial-aid-advisor
+        [eventCategory]="'Financial Aid'"
+        (loadingFinished)="clearLoading()"
+        (errorOnLoad)="onError($event)"
+      ></pec-financial-aid-advisor>
+      <pec-financial-aid-tips
+        (loadingFinished)="clearLoading()"
+        (errorOnLoad)="onError($event)"
+      ></pec-financial-aid-tips>
+    </ng-container>
+  </ng-container>
+  <ng-container *ngIf="showError">
+    <pec-error [errCode]="errorCodeMessage"></pec-error>
+  </ng-container>
+</ion-content>

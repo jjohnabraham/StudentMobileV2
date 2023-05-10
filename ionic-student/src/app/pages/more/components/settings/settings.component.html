@@ -1,0 +1,145 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="pec-back-button" [text]="''" [icon]="''"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div>Settings</div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content forceOverscroll="false" [pecTrackView]="{ view: 'Settings View' }">
+  <ion-list *ngIf="showDevOptions" class="pec-mt-7 pec-mb-6 pec-bw-bottom-1 pec-bc-silver-chalice no-header-list">
+    <ion-item (click)="clearCache()" button="true" detail="false">
+      <span>Clear Cache</span>
+    </ion-item>
+    <ion-item (click)="crashApp()" class="no-border" button="true" detail="false">
+      <span>Crash App</span>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngIf="!globalConfigs.isImpersonatedUser" class="pec-bw-bottom-1 pec-bc-silver-chalice">
+    <ion-list-header>Access</ion-list-header>
+    <ion-item *ngIf="authenticationMode > 1" class="toggle-item">
+      <ion-label>Use {{ authTypeName }}</ion-label>
+      <ion-toggle value="touchID" [(ngModel)]="fingerprintToggledModel"></ion-toggle>
+    </ion-item>
+    <ng-container *ngIf="authenticationMode == 1">
+      <ion-item class="toggle-item">
+        <ion-label>Use Passcode</ion-label>
+        <ion-toggle value="passcode" [(ngModel)]="passcodeToggledModel"></ion-toggle>
+      </ion-item>
+      <ion-item *ngIf="passcodeToggled" (click)="openPasscodePage()">
+        <ion-label>Change Passcode</ion-label>
+      </ion-item>
+    </ng-container>
+  </ion-list>
+
+  <ion-list
+    *ngIf="isPushNotificationSupported && !globalConfigs.isImpersonatedUser"
+    class="pec-bw-bottom-1 pec-bc-silver-chalice"
+  >
+    <ion-list-header>Push Notifications</ion-list-header>
+    <ion-item [class.no-border]="!isAppNotificationDisabled" class="toggle-item">
+      <ion-label>University Notifications</ion-label>
+      <ion-toggle value="univNotification" [(ngModel)]="univNotificationToggledModel"></ion-toggle>
+    </ion-item>
+    <ion-item class="toggle-disclaimer">
+      <ion-label class="ion-text-wrap">
+        Receive grade notifications, live chat changes, replies to your discussion board posts and more.
+      </ion-label>
+    </ion-item>
+
+    <ng-container *ngIf="isMessengerPushNotificationSupported">
+      <ion-item [class.no-border]="!isAppNotificationDisabled" class="toggle-item">
+        <ion-label>{{ campusName }} Messenger Notifications</ion-label>
+        <ion-toggle value="messengerNotification" [(ngModel)]="messengerNotificationToggledModel"></ion-toggle>
+      </ion-item>
+      <ion-item *ngIf="!isAppNotificationDisabled" class="toggle-disclaimer">
+        <ion-label *ngIf="messengerNotificationToggled" class="ion-text-wrap">
+          Turn this OFF to stop receiving notifications for messages sent to you when you're offline.
+        </ion-label>
+        <ion-label *ngIf="!messengerNotificationToggled" class="ion-text-wrap">
+          Turn this ON to receive notifications for messages sent to you when you're offline.
+        </ion-label>
+      </ion-item>
+    </ng-container>
+
+    <ng-container *ngIf="isAppNotificationDisabled">
+      <ion-item class="toggle-disclaimer" *ngIf="isMessengerPushNotificationSupported">
+        <ion-label class="ion-text-wrap">
+          Tap one of the notification toggles above to go to your device settings so you can enable notifications for
+          {{ campusName }} Student Mobile.
+        </ion-label>
+      </ion-item>
+      <ion-item class="toggle-disclaimer" *ngIf="!isMessengerPushNotificationSupported">
+        <ion-label class="ion-text-wrap">
+          Tap the University notification toggle to go to your device settings so you can enable notifications for
+          {{ campusName }} Student Mobile.
+        </ion-label>
+      </ion-item>
+    </ng-container>
+  </ion-list>
+
+  <ion-list *ngIf="campusSettings && campusSettings.MoreAssistance" class="pec-bw-bottom-1 pec-bc-silver-chalice">
+    <ion-list-header>About</ion-list-header>
+    <ion-item class="version-item">
+      VERSION
+      <br />
+      {{ globalConfigs?.version || '1.0' }}
+    </ion-item>
+    <ng-container *ngFor="let assistance of campusSettings.MoreAssistance">
+      <ng-container *ngIf="assistance.url">
+        <ng-container [ngSwitch]="assistance.openin">
+          <ng-container *ngSwitchDefault>
+            <ion-item
+              button="true"
+              detail="false"
+              pecUrlRedirect
+              [pecOpenIn]="assistance.openin || 'inapp'"
+              [pecTrackEvent]="{
+                category: 'Settings View',
+                action: 'Tapped ' + assistance.title,
+                label: '',
+                value: ''
+              }"
+              [pecUrl]="assistance.url"
+            >
+              <span>{{ assistance.title }}</span>
+              <span slot="end" *ngIf="globalConfigs.isIos">
+                <i class="pec-icon-chevron-right pec-fs-16 pec-text-light-grey"></i>
+              </span>
+            </ion-item>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </ion-list>
+
+  <ion-list class="pec-bw-bottom-1 pec-bc-silver-chalice settings-id-list">
+    <ion-list-header>Device Details</ion-list-header>
+    <ion-item (click)="openDebugMenu()">
+      <ion-label class="settings-id">
+        <span class="stacked-label">Device ID</span>
+        <span class="stacked-value">{{ globalConfigs?.deviceSpecificId || 'N/A' }}</span>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="deviceChannelId">
+      <ion-label class="settings-id">
+        <span class="stacked-label">Channel ID</span>
+        <span class="stacked-value">{{ deviceChannelId }}</span>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="globalConfigs.chameleonId">
+      <ion-label class="settings-id">
+        <span class="stacked-label">Chameleon Registration ID</span>
+        <span class="stacked-value">{{ globalConfigs.chameleonId }}</span>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="registrationToken && campusPointziSetting">
+      <ion-label position="stacked" class="settings-id">
+        <span class="stacked-label">Pointzi Registration ID</span>
+        <span class="stacked-value">{{ registrationToken }}</span>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

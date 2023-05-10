@@ -1,0 +1,28 @@
+ion-card {
+  --color: var(--pec-color-dark);
+
+  h5 {
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: -0.22px;
+    line-height: 17px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    &.color-primary {
+      color: var(--pec-color-primary);
+    }
+  }
+
+  ion-card-header {
+    padding: 16px 12px 12px;
+    font-size: 17px;
+    text-transform: none;
+    border-bottom: 0;
+
+    &.ios {
+      font-size: 18px;
+    }
+  }
+}

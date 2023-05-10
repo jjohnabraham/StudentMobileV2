@@ -1,0 +1,81 @@
+<ion-header [class.hide-shadow]="visibleState">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="previousView" class="pec-back-button" [text]="''" [icon]="''"></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="classData && !visibleState">
+      <div>{{ classData.CourseCode }}</div>
+      <div class="subtitle">{{ classData.CourseName }}</div>
+    </ion-title>
+    <ion-buttons slot="end" *ngIf="showViewSelectIcon && isStandardClass">
+      <ion-button
+        class="filter-button"
+        (click)="presentClassFilterModal()"
+        [pecTrackEvent]="{ category: '', action: '', label: '', value: '' }"
+        aria-label="Change Classroom View"
+      >
+        <i class="pec-fs-36 pec-text-primary pec-icon-customize"></i>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content
+  forceOverscroll="false"
+  [pecTrackView]="{ view: 'Classroom View' }"
+  [scrollEvents]="true"
+  (ionScroll)="trackContentScroll($event)"
+>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <pec-loading class="fade-up" [class.fade-up-show]="!classData"></pec-loading>
+  <pec-class-card
+    *ngIf="classData"
+    [classInfo]="classData"
+    [isHomePage]="false"
+    [isClassroomPage]="true"
+    [showContactAndGrades]="true"
+    class="full-width"
+  ></pec-class-card>
+  <pec-loading class="fade-up" [class.fade-up-show]="showLoading"></pec-loading>
+  <pec-classroom-list
+    *ngIf="classRoomView === 'alllist' && !showError && !showLoading"
+    [classId]="classId"
+    [isAccelerated]="isAccelerated"
+    [isOrientation]="isOrientation"
+    [isStandardClass]="isStandardClass"
+    [isNewCustomCourse]="isNewCustomCourse"
+    [isPilotedCourse]="isPilotedCourse"
+    [showOverview]="showOverview"
+    [classStatus]="classStatus"
+    [classSummary]="classSummary"
+    [classInfo]="classInfo"
+    [unitsInfo]="unitsInfo"
+    [zoomConcludedChatList]="zoomConcludedChatList"
+    [visitedCourseOverview]="visitedCourseOverview"
+    (visitedCourseOverviewChanged)="postVisitedCourseOverview($event)"
+    (apiError)="showError = true"
+  ></pec-classroom-list>
+  <pec-classroom-slider
+    *ngIf="classRoomView === 'unitview' && !showError && !showLoading"
+    [classId]="classId"
+    [isAccelerated]="isAccelerated"
+    [isOrientation]="isOrientation"
+    [isStandardClass]="isStandardClass"
+    [isNewCustomCourse]="isNewCustomCourse"
+    [isPilotedCourse]="isPilotedCourse"
+    [showOverview]="showOverview"
+    [classStatus]="classStatus"
+    [classSummary]="classSummary"
+    [classInfo]="classInfo"
+    [assignmentList]="assignmentList"
+    [unitsInfo]="unitsInfo"
+    [zoomConcludedChatList]="zoomConcludedChatList"
+    [visitedCourseOverview]="visitedCourseOverview"
+    (visitedCourseOverviewChanged)="postVisitedCourseOverview($event)"
+    (apiError)="showError = true"
+  ></pec-classroom-slider>
+  <ng-container *ngIf="showError">
+    <pec-error-api></pec-error-api>
+  </ng-container>
+</ion-content>

@@ -1,0 +1,44 @@
+<ion-item
+  [class.contact-box]="isContactsView"
+  [class.departments-wrap]="showDeptInfo"
+  [pecTrackEvent]="trackEvent"
+  aria-label="Open Contact"
+>
+  <ion-avatar (click)="presentFacultyModal()" slot="start" class="pec-m-0 pec-pt-3">
+    <pec-contact-image-card
+      [imageClass]="imageClass"
+      *ngIf="contactInfo"
+      [contactInfo]="contactInfo"
+    ></pec-contact-image-card>
+  </ion-avatar>
+
+  <ion-label (click)="presentFacultyModal()" class="pec-my-3">
+    <h6 [class.department-contact]="contactInfo.IsDepartment" *ngIf="!isContactsView">
+      {{ contactInfo.DisplayName }}
+    </h6>
+    <h5
+      *ngIf="!showCourseDescription && !contactInfo.IsDepartment && contactInfo.Name"
+      [style.line-height.px]="contactInfo.Name && contactInfo.Name.length > 23 ? '12' : '17'"
+    >
+      {{ contactInfo.Name }}
+    </h5>
+    <h6
+      [class.department-contact]="contactInfo.IsDepartment || (isContactsView && showCourseDescription)"
+      *ngIf="isContactsView"
+    >
+      {{ contactInfo.DisplayName }}
+    </h6>
+    <ng-container *ngIf="showCourseDescription && contactInfo.ContactGroup === 'Instructor' && this.classList">
+      <ng-container *ngFor="let item of classList">
+        <h6 *ngIf="item.ClassId === contactInfo.ClassId && item.PrimaryInstructor === contactInfo.DisplayName">
+          {{ item.CourseName }}
+        </h6>
+      </ng-container>
+    </ng-container>
+
+  </ion-label>
+
+  <button class="icon-button" (click)="presentDepartmentsInfoModal()" *ngIf="showDeptInfo">
+    <i class="pec-icon-information"></i>
+  </button>
+</ion-item>

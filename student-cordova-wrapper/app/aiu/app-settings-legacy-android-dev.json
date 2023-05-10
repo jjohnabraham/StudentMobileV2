@@ -1,0 +1,15 @@
+{
+  "AppConfigurations": {
+    "AppId": "edu.aiuniv",
+    "AppName": "edu.aiuniv.www Development",
+    "CustomUrlScheme": "aiustudentdev",
+    "UrbanAirshipAppKey": "5St-iS2xT8CwBX4y68L0Kw",
+    "UrbanAirshipAppSecret": "dBAB0P3aRQeEylmq37_Okw",
+    "UrbanAirshipGcmSenderId": "289237884186"
+  },
+
+  "Preferences": {
+    "Url": "http://dev-mobileapi.careered.com/student/app/aiu/assets/loader/dev/",
+    "Environment":  "dev"
+  }
+}

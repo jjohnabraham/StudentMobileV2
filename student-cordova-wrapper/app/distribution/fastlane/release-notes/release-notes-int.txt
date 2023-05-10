@@ -1,0 +1,2 @@
+- Added plugin "cordova-plugin-app-version"
+- White-listed "https://*.loudcloudsystems.com"

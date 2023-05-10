@@ -1,0 +1,39 @@
+ion-tab-button {
+  color: var(--pec-color-border-grey);
+
+  i {
+    width: 35px;
+    height: 20px;
+    margin-bottom: 6px;
+  }
+
+  ion-label {
+    margin-top: 0;
+    margin-bottom: 1px;
+    height: 11px;
+    overflow: visible;
+    font-family: var(--pec-font-default);
+    letter-spacing: -0.2px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+}
+
+.selected-tab {
+  color: var(--pec-color-primary);
+}
+
+ion-badge {
+  background-color: var(--pec-color-primary) !important;
+  border: 3px solid #fff;
+  top: -28px;
+  left: 21px;
+  display: block;
+  height: 15px;
+  width: 15px;
+  padding: 0;
+  margin: 0;
+  border-radius: 50% !important;
+  position: relative;
+  overflow: hidden;
+}

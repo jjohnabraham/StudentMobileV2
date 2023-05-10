@@ -1,0 +1,453 @@
+.ion-color-pickerColor {
+  --ion-color-base: var(--pec-color-primary);
+  --ion-color-contrast: #fff;
+}
+
+.login-block-until {
+  .loading-wrapper.sc-ion-loading-md,
+  .loading-wrapper.sc-ion-loading-ios {
+    padding: 0 10px 15px 10px;
+  }
+}
+
+.financial-document-upload-modal{
+  --width: 100%;
+  --background: #fff;
+
+ion-header{
+  
+  border-bottom: 0.55px solid var(--pec-color-border-grey);
+   position:static;
+  text-align: center;
+  ion-title{
+    margin-left: 20%;
+
+  }
+
+  ion-button {
+    --padding-bottom: 0;
+    --padding-top: 0;
+    --padding-start: 0;
+    --padding-end: 10px;
+    text-transform: capitalize;
+    height: 36px;
+    color: #af272f;
+        
+        
+        &.md {
+          letter-spacing: 0 !important;
+        }
+
+        &.ios {
+          letter-spacing: 1px;
+        }
+      
+      }
+      .subtitle {
+        width: 100%;
+        font-size: 12px;
+        letter-spacing: 0;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        font-weight: 400;
+      }
+
+}
+  
+
+  
+    .modal-body {
+      --background: #f5f5f5;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      .modal-image{
+        width: 100%;
+        max-height: 100%;
+        padding: 10px;
+      }
+    }
+
+  
+  ion-footer{
+    
+    ion-buttons{
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+        .remove-button-9 {
+          --background: transparent;
+          text-align: right;
+          font-weight: 700;
+          color: #2D779F;
+          font-size: 14px;
+          text-transform: none;
+        }
+        .remove-button-18 {
+          --background: transparent;
+          text-align: right;
+          font-weight: 700;
+          color: #0065a4;
+          font-size: 14px;
+          text-transform: none;
+        }
+
+        .text-button{
+          padding-bottom: 5px;
+        }
+
+  }
+  
+}
+
+.classroom-filter-modal,
+.bookshelf-modal {
+  --width: 100%;
+  --background: transparent;
+
+  .dismiss-row {
+    background-color: transparent;
+
+    &.ios {
+      height: calc(100% - 144px);
+    }
+
+    &.md {
+      height: calc(100% - 138px);
+    }
+  }
+
+  .modal-wrapper {
+    bottom: 0;
+    z-index: 10;
+    position: relative;
+    border-radius: 0;
+
+    .modal-header {
+      border-bottom: 0.55px solid var(--pec-color-border-grey);
+      min-height: 48px;
+      color: var(--ion-color-dark-shade);
+
+      &.ios {
+        letter-spacing: 1px;
+      }
+
+      ion-button {
+        &.md {
+          letter-spacing: 0 !important;
+        }
+
+        &.ios {
+          letter-spacing: 1px;
+        }
+      }
+
+      .header-title {
+        line-height: 48px;
+      }
+
+      ion-button {
+        --padding-bottom: 0;
+        --padding-top: 0;
+        --padding-start: 0;
+        --padding-end: 0;
+        text-transform: capitalize;
+        height: 36px;
+      }
+    }
+
+    .modal-selector {
+      ion-button {
+        --box-shadow: none;
+        --background-activated: var(--pec-color-primary);
+        --background-focused: var(--pec-color-primary);
+        --background-hover: var(--pec-color-primary);
+        letter-spacing: 0;
+        height: 44px;
+
+        &.unselected {
+          --background: var(--pec-color-white);
+          --border-width: 2px;
+          --border-color: var(--pec-color-border-grey);
+          --border-style: solid;
+          --background-activated: var(--pec-color-white);
+          --background-focused: var(--pec-color-white);
+          --background-hover: var(--pec-color-white);
+          color: var(--pec-color-dark);
+        }
+      }
+    }
+  }
+}
+
+.announcements-filter {
+  --background: transparent;
+
+  .modal-wrapper {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
+    z-index: 10;
+    position: relative;
+  }
+
+  ion-backdrop {
+    visibility: visible;
+    z-index: 2;
+  }
+
+  .announcements-filter-content {
+    font-family: var(--pec-font-default);
+    flex-direction: column;
+    display: flex;
+    background-color: white;
+
+    ion-grid {
+      border-top: 0.55px solid #c8c7cc;
+      margin: 0;
+
+      ion-row {
+        justify-content: flex-start;
+        margin: 0 10px 0 20px;
+
+        .filter-section-title {
+          font-size: 11px;
+          padding-bottom: 0px;
+        }
+
+        &.filter-options {
+          ion-col {
+            min-width: 105px;
+            max-width: 105px;
+          }
+
+          button {
+            border: 2px solid #a4aab3;
+            font-size: 13px;
+            width: 100%;
+            height: 40px;
+            border-radius: 40px;
+            background: var(--pec-color-white);
+            white-space: nowrap;
+
+            &.announcement-filter-selected {
+              background: var(--pec-color-primary);
+              color: var(--pec-color-white);
+              border-color: var(--pec-color-primary);
+            }
+          }
+        }
+      }
+    }
+
+    .read-unread-filler {
+      flex-grow: 100;
+    }
+  }
+
+  .scroll-content {
+    padding: 0;
+  }
+
+  .announcements-filter-buffer {
+    flex-grow: 100;
+  }
+}
+
+.modal-wrapper {
+  ion-content,
+  .content-ios,
+  .content-md {
+    background: none;
+  }
+
+  &.ion-overlay-wrapper {
+    --background: transparent;
+  }
+}
+
+.modal-content-wrap {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+}
+
+.drag-handle {
+  height: 6px;
+  width: 43px;
+  border-radius: 3px;
+  background-color: rgba(30, 32, 35, 0.1);
+  margin: 0 auto 5px auto;
+  display: block;
+}
+
+.contact-image-info {
+  padding: 20px 0;
+
+  img {
+    border-radius: 3px;
+    height: 69px;
+    width: 69px;
+    border-radius: 3px;
+  }
+
+  h6 {
+    font-size: 17px;
+    font-weight: normal;
+    margin: 6px 0;
+    color: var(--pec-color-dark);
+
+    &.department-contact {
+      font-weight: 700;
+    }
+
+    &.contact-name {
+      font-weight: 700;
+    }
+
+    &.contact-name {
+      font-weight: 700;
+    }
+  }
+
+  h4 {
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: 0;
+  }
+
+  h4.deptname {
+    margin: 6px 0;
+  }
+
+  h6.office-hour-title {
+    font-size: 11px;
+    text-transform: none;
+    color: var(--pec-color-primary);
+  }
+
+  h6.office-hour {
+    font-size: 11px;
+    text-transform: none;
+  }
+}
+
+.grey-avatar-box {
+  font-family: var(--pec-font-open-sans);
+  margin-bottom: 10px;
+  background-color: rgba(30, 32, 35, 0.1);
+  text-align: center;
+  border-radius: 3px;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 600;
+  min-height: 44px;
+  text-transform: capitalize;
+
+  .item-inner {
+    border-bottom: none !important;
+  }
+}
+
+.grey-note {
+  color: var(--pec-color-grey);
+
+  margin-top: 20px;
+  font-style: italic;
+}
+
+ion-content {
+  div {
+    .department-hour-title {
+      color: var(--pec-color-primary);
+      font-family: var(--font-body);
+      font-size: 13px;
+      padding: 10px;
+      margin-bottom: 0;
+    }
+
+    .office-hour {
+      padding: 0;
+      font-size: 13px;
+      margin-top: 0;
+    }
+  }
+}
+
+ion-backdrop {
+  visibility: visible;
+  z-index: 8;
+}
+
+ion-row {
+  &.modal-buffer {
+    flex-grow: 100;
+    --background: var(--pec-color-primary) !important;
+  }
+
+  &.modal-content-wrap {
+    background-color: #fff;
+    border-radius: 8px 8px 0 0;
+    z-index: 10;
+
+    ion-col {
+      // this is for iphone X
+      @media only screen and (min-device-width: 375px) and (min-device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+        padding-bottom: 30px !important;
+      }
+    }
+  }
+
+  .row {
+    align-items: center;
+  }
+}
+
+.dark-text {
+  color: var(--pec-color-dark);
+}
+
+.image.ion-img.img::part(image) {
+  border-radius: 3px;
+  height: 69px;
+  width: 100%;
+}
+
+.contacts-modal,
+.policy-modal,
+.fast-track-error,
+.document-details-slideup {
+  --background: transparent;
+   --width: 100%;
+  --height: 100%;
+  --border-radius: 0;
+
+  .modal-wrapper, .popover-wrapper {
+    width: 100vw;
+    height: 100vh;
+
+  }
+}
+
+.fast-track-error {
+  .popover-content {
+    padding: 0 10px;
+
+    ion-content {
+      --padding-start: 20px;
+      --padding-end: 20px;
+    }
+  }
+}
+
+.connect-menu-modal {
+  --background: rgba(0, 0, 0, 0.7);
+  --height: 100%;
+}
+
+.fullscreen-modal {
+  --height: 100%;
+  --width: 100%;
+}

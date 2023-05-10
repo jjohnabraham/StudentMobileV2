@@ -1,0 +1,233 @@
+ion-card-header,
+.card-header-ios,
+.card-header-md {
+  padding: 11px 12px 8px;
+
+  &.smaller-header {
+    border-bottom: 1px solid rgba(30, 32, 35, 0.1);
+    font-size: 12px;
+    line-height: 1;
+    color: var(--pec-color-white);
+    letter-spacing: 0;
+    font-weight: 400;
+    background: var(--pec-color-dark);
+    min-height: 31px;
+    text-align: left;
+  }
+}
+
+cec-icon svg {
+  height: 30px;
+  width: 30px;
+  margin: -10px -5px -10px -7px;
+}
+
+.overview-description {
+  font-size: 13px;
+  padding-top: 0px;
+  margin-bottom: 0;
+  width: 100%;
+  text-align: left;
+
+  .status-icon {
+    font-size: 15px;
+
+    &.pec-icon-check-circle-outline {
+      color: var(--pec-color-light-green);
+    }
+
+    &.pec-icon-warning-circle, &.pec-icon-ellipsis-hz-circle {
+      color: var(--pec-color-yellow);
+    }
+  }
+}
+
+.card-content-ios,
+.card-ios .item + .card-content-ios,
+.card-content-md,
+.card-md .item + .card-content-md {
+  padding: 18px 12px;
+  min-height: 110px;
+  height: 100%;
+}
+
+.card-md,
+card-ios {
+  p {
+    font-size: 13px;
+    line-height: 16px;
+  }
+}
+
+.card-ios .item-ios.item-block .item-inner,
+.card-md .item-md.item-block .item-inner {
+  border-bottom: 1px solid rgba(30, 32, 35, 0.1);
+}
+
+.link-cards {
+  .card-header {
+    padding: 10px;
+  }
+}
+
+.slide-zoom {
+  .card-ios,
+  .card-md {
+    width: auto;
+    padding-bottom: 0;
+  }
+
+  padding-left: 5px;
+  padding-right: 5px;
+
+  .action-boxes {
+    padding-right: 0;
+  }
+}
+
+ion-slides {
+  height: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  .card-md,
+  .card-ios {
+    text-align: left;
+  }
+
+  .swiper-slide-active {
+    ion-card.ios,
+    ion-card.md {
+      margin-left: 25px !important;
+      margin-right: 25px !important;
+    }
+  }
+  &.showOverhang {
+    ion-card.ios,
+    ion-card.md {
+      margin: 10px;
+
+      margin-left: 40px;
+      margin-right: 40px;
+    }
+
+    .slide-zoom {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
+}
+
+ion-slides {
+  ion-slide {
+    &:first-child {
+      .card-md,
+      .card-ios {
+        @media (max-width: 339px) {
+          margin-left: 5px;
+        }
+
+        @media (min-width: 340px) and (max-width: 374px) {
+          margin-left: 10px;
+        }
+
+        @media (min-width: 375px) {
+          margin-left: 20px;
+        }
+      }
+    }
+
+    &:last-child {
+      .card-md,
+      .card-ios {
+        @media (max-width: 339px) {
+          margin-right: 5px;
+        }
+
+        @media (min-width: 340px) and (max-width: 374px) {
+          margin-right: 10px;
+        }
+
+        @media (min-width: 375px) {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+}
+
+.hideOverhang {
+  .card-header-ios + .card-content-ios,
+  .card-ios .item + .card-content-ios,
+  .card-header-md + .card-content-md,
+  .card-md .item + .card-content-md {
+    min-height: initial;
+  }
+ 
+}
+
+.cec-swiper-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  /* Set our transitions up. */
+  // transition: max-height 0.8s;
+}
+
+.cec-swiper-wrapper-show {
+  max-height: 3000px;
+}
+
+.swiper-slide {
+  height: 100%;
+  margin-bottom: 0;
+}
+
+@media (max-width: 339px) {
+  .swiper-slide-next {
+    transform: translateX(-30px) !important;
+  }
+
+  .swiper-slide-prev {
+    transform: translateX(30px) !important;
+  }
+}
+
+@media (min-width: 340px) and (max-width: 374px) {
+  .swiper-slide-next {
+    transform: translateX(-40px) !important;
+  }
+
+  .swiper-slide-prev {
+    transform: translateX(40px) !important;
+  }
+}
+
+@media (min-width: 375px) {
+  .swiper-slide-next {
+    transform: translateX(-60px) !important;
+  }
+
+  .swiper-slide-prev {
+    transform: translateX(60px) !important;
+  }
+}
+
+.scroll-content {
+  &:after {
+    content: '';
+    min-height: 101%;
+    width: 1px;
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    opacity: 0;
+  }
+}
+
+.single-card .card-header-ios,
+.single-card .card-header-md {
+  min-height: 72px;
+  height: 72px;
+}

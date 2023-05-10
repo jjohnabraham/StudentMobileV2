@@ -1,0 +1,117 @@
+<ion-header *ngIf="!showError">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref=""
+        class="pec-back-button"
+        [text]="''"
+        [icon]="''"
+        (click)="onBack()"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title>Contacts</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content
+  class="pec-p-0"
+  forceOverscroll="false"
+  [class.error-page]="showError"
+  [pecTrackView]="{ view: 'Contacts View' }"
+>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <pec-loading *ngIf="showLoading"></pec-loading>
+  <ng-container *ngIf="!showError && contacts && !showLoading">
+    <ion-list class="pec-mt-7 pec-mb-6 pec-bw-bottom-1 pec-bc-silver-chalice">
+      <ion-item-divider *ngIf="isPersonalReady" class="pec-divider-grey">
+        <ion-label>MY PERSONAL {{ globalConfigsService.brandName }} CONTACTS</ion-label>
+      </ion-item-divider>
+      <ng-container *ngFor="let contact of personalContacts">
+        <ng-container
+          *ngIf="
+            contact.FirstName != null &&
+            (contact.ContactGroup == 'Success Coach' ||
+              contact.ContactGroup == 'Student Advisor' ||
+              contact.ContactGroup == 'Financial Aid Advisor' ||
+              contact.ContactGroup == 'Admissions Advisor')
+          "
+        >
+          <ion-item>
+            <pec-contact-box
+              [isContactsView]="true"
+              [contactInfo]="contact"
+              [trackEvent]="{
+                category: 'Contacts View',
+                action: 'Tapped to View Contact',
+                label:
+                  contact.DisplayName == 'Student Advisor' || contact.DisplayName == 'Success Coach'
+                    ? 'Academic Advisor'
+                    : contact.ContactGroup,
+                value: ''
+              }"
+            ></pec-contact-box>
+          </ion-item>
+        </ng-container>
+      </ng-container>
+
+      <ion-item-divider *ngIf="isFacultyReady" class="pec-divider-grey">
+        <ion-label>MY FACULTY</ion-label>
+      </ion-item-divider>
+      <ng-container *ngFor="let contact of personalContacts">
+        <ng-container
+          *ngIf="
+            contact.ContactGroup == 'Instructor' &&
+            contact.DisplayName != '. .To Be Announced' &&
+            contact.DisplayName != 'Online .Instructor'
+          "
+        >
+          <ion-item>
+            <pec-contact-box
+              [isContactsView]="true"
+              [showCourseDescription]="true"
+              [contactInfo]="contact"
+              [trackEvent]="{
+                category: 'Contacts View',
+                action: 'Tapped to View Contact',
+                label:
+                  contact.DisplayName == 'Student Advisor' || contact.DisplayName == 'Success Coach'
+                    ? 'Academic Advisor'
+                    : contact.ContactGroup,
+                value: ''
+              }"
+            ></pec-contact-box>
+          </ion-item>
+        </ng-container>
+      </ng-container>
+
+      <ion-item-divider class="pec-divider-grey">
+        <ion-label>{{ globalConfigsService.brandName }} DEPARTMENTS</ion-label>
+      </ion-item-divider>
+      <ng-container *ngFor="let contact of deptContacts">
+        <ng-container *ngIf="contact.IsDepartment">
+          <ion-item>
+            <pec-contact-box
+              [isContactsView]="true"
+              [showDeptInfo]="true"
+              [contactInfo]="contact"
+              [trackEvent]="{
+                category: 'Contacts View',
+                action: 'Tapped to View Department Info',
+                label:
+                  contact.DisplayName == 'Student Advisor' || contact.DisplayName == 'Success Coach'
+                    ? 'Academic Advisor'
+                    : contact.ContactGroup,
+                value: ''
+              }"
+            ></pec-contact-box>
+          </ion-item>
+        </ng-container>
+      </ng-container>
+    </ion-list>
+  </ng-container>
+  <ng-container *ngIf="showError">
+    <pec-error-api [errorDetails]="errorCodeMessage" [errCode]="errorCode"></pec-error-api>
+  </ng-container>
+</ion-content>

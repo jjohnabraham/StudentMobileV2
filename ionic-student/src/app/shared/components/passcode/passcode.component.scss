@@ -1,0 +1,142 @@
+h6 {
+  line-height: 24px;
+  font-weight: normal;
+}
+
+.passcode-dots {
+  margin: 0 auto;
+  display: inline-block;
+  width: 30px;
+  transition: all 150ms ease-in-out;
+
+  span {
+    text-align: center;
+    background: #b9b9b9;
+    height: 9px;
+    width: 9px;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: inline-block;
+
+    &.active {
+      height: 15px;
+      width: 15px;
+      background: var(--pec-color-secondary-warning);
+      vertical-align: middle;
+    }
+
+    &.success {
+      background: #18b800;
+    }
+  }
+
+  &.error {
+    animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    -webkit-animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+  }
+
+  @keyframes shake {
+    10%,
+    90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    20%,
+    80% {
+      transform: translate3d(3px, 0, 0);
+    }
+    30%,
+    50%,
+    70% {
+      transform: translate3d(-6px, 0, 0);
+    }
+    40%,
+    60% {
+      transform: translate3d(6px, 0, 0);
+    }
+  }
+
+  @-webkit-keyframes shake {
+    10%,
+    90% {
+      -webkit-transform: translate3d(-1px, 0, 0);
+    }
+    20%,
+    80% {
+      -webkit-transform: translate3d(3px, 0, 0);
+    }
+    30%,
+    50%,
+    70% {
+      -webkit-transform: translate3d(-6px, 0, 0);
+    }
+    40%,
+    60% {
+      -webkit-transform: translate3d(6px, 0, 0);
+    }
+  }
+}
+
+.passcode-error {
+  color: #d0021b;
+}
+
+.passcode-link {
+  position: absolute;
+  bottom: 230px;
+  right: 8%;
+  text-align: right;
+}
+
+.keyboard-numbers {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  ion-grid {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+
+    ion-row {
+      border-bottom: 1px solid var(--pec-color-border-dark-grey);
+
+      &:first-child {
+        border-top: 1px solid var(--pec-color-border-dark-grey);
+      }
+    }
+
+    ion-col {
+      padding-top: 0;
+      padding-bottom: 0;
+      padding-left: 0;
+      padding-right: 0;
+
+      &:nth-child(2) {
+        border-left: 1px solid var(--pec-color-border-dark-grey);
+        border-right: 1px solid var(--pec-color-border-dark-grey);
+      }
+
+      .button-full {
+        --background: #fff;
+        --padding-start: 0;
+        --padding-end: 0;
+        --padding-left: 0;
+        --padding-right: 0;
+        --background-activated: #b8c4d2;
+        color: var(--pec-color-dark);
+        font-size: 24px;
+        height: 50px;
+        font-weight: bold;
+        margin: 0;
+
+        &.grey-fill {
+          --background: #d8d8d8;
+        }
+      }
+    }
+  }
+}

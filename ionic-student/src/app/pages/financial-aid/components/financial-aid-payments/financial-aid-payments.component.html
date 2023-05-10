@@ -1,0 +1,64 @@
+<pec-loading *ngIf="showLoading"></pec-loading>
+<ion-card
+  name="payment-info-card"
+  class="payment-info-card"
+  *ngIf="!showLoading && isPackaged && paymentInfo && paymentInfo.showPaymentInfo"
+>
+  <ion-card-header class="pec-fs-12 pec-bc-divider pec-pt-15 pec-pb-14 pec-px-12">
+    <span>Payment Information</span>
+  </ion-card-header>
+  <ion-grid class="pec-p-6">
+    <ion-row>
+      <ion-col class="pec-fw-600 pec-fs-14 pec-text-dark-shade">Amount Past Due</ion-col>
+    </ion-row>
+    <ion-row class="pec-bw-bottom-1 pec-bc-divider">
+      <ion-col
+        name="past-due"
+        class="pec-font-oswald pec-fs-20 pec-fw-500 pec-p-6"
+        [ngClass]="paymentInfo.pastDueAmount == 0.0 ? 'pec-text-grey-original' : 'pec-text-error'"
+      >
+        $ {{ paymentInfo.pastDueAmount }}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="pec-fw-600 pec-fs-14 pec-text-dark-shade" size="6">Next Payment Due</ion-col>
+      <ion-col name="next-due-date" class="pec-fw-600 pec-text-right pec-text-dark-shade" size="6">
+        {{ paymentInfo.nextDueDate }}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col
+        name="next-due-amount"
+        class="pec-font-oswald pec-fs-20 pec-fw-500 pec-p-6"
+        [ngClass]="paymentInfo.nextDueAmount == 0.0 ? 'pec-text-grey-original' : 'pec-text-dark'"
+      >
+        $ {{ paymentInfo.nextDueAmount }}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngIf="paymentInfo.showMakePayment">
+        <ion-button
+          *ngIf="!paymentInfo.useTfcSiteForPayment"
+          class="pec-button-grey pec-text-tr-up"
+          (click)="$event.stopPropagation()"
+          pecUrlRedirect
+          pecOpenIn="inapp"
+          pecUrl="{{ paymentInfo.paymentPortalUrl }}"
+          [disabled]="globalConfigs.isImpersonatedUser"
+          [pecTrackEvent]="{ category: 'Financial Aid View', action: 'Tapped Make a Payment', label: '', value: '' }"
+        >
+          make a payment
+        </ion-button>
+        <ion-button
+          *ngIf="paymentInfo.useTfcSiteForPayment"
+          class="pec-button-grey pec-text-tr-up"
+          (click)="showPaymentModal()"
+          [disabled]="globalConfigs.isImpersonatedUser"
+          [pecTrackEvent]="{ category: 'Financial Aid View', action: 'Tapped Make a Payment', label: '', value: '' }"
+        >
+          make a payment
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-card>

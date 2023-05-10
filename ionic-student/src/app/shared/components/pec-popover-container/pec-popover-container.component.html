@@ -1,0 +1,36 @@
+<ion-fab-button class="popover-close-btn pec-fs-16 ion-text-center" (click)="closeClick.emit()">
+  <i class="pec-icon-thick-x pec-text-white"></i>
+</ion-fab-button>
+<ion-content forceOverscroll="false">
+  <h4 class="pec-popover-title" *ngIf="title">{{ title }}</h4>
+  <p *ngIf="message" [innerHTML]="message" class="pec-font-default pec-fs-15 pec-mx-5 pec-fw-400"></p>
+  <ng-content></ng-content>
+  <section *ngIf="buttons && buttons.length > 0">
+    <ng-container *ngFor="let btn of buttons">
+      <ion-button *ngIf="btn.href" class="pec-button-primary" [class]="btn.class" [href]="btn.href">
+        {{ btn.label }}
+      </ion-button>
+      <ion-button
+        *ngIf="btn.redirectUrl"
+        pecLmsRedirect
+        pecOpenIn="browser"
+        pecUrl="{{ btn.redirectUrl }}"
+        class="pec-button-primary"
+        [class]="btn.class"
+      >
+        {{ btn.label }}
+      </ion-button>
+      <ion-button
+        *ngIf="!btn.href && !btn.redirectUrl && !btn.action"
+        class="pec-button-primary"
+        [class]="btn.class"
+        (click)="buttonClick.emit(btn.label); $event.stopPropagation()"
+      >
+        {{ btn.label }}
+      </ion-button>
+      <ion-button *ngIf="btn.action" class="pec-button-primary" [class]="btn.class" (click)="btn.action()">
+        {{ btn.label }}
+      </ion-button>
+    </ng-container>
+  </section>
+</ion-content>

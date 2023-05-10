@@ -1,0 +1,7 @@
+﻿{
+  "extends": ["stylelint-prettier/recommended"],
+  "rules": {
+    "prettier/prettier": [true, {"singleQuote": false}],
+    "string-quotes": "double"
+  }
+}

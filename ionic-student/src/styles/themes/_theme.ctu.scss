@@ -1,0 +1,52 @@
+.theme-9 {
+  --pec-theme-id: "9";
+  --pec-theme: "ctu";
+  --pec-color-primary: #c00009;
+  --pec-color-primary-rgb: 192, 0, 9;
+  --pec-color-secondary: #8d0004;
+  --pec-color-secondary-rgb: 141, 0, 4;
+  --pec-color-secondary-warning: #c00005;
+  --pec-color-warning: #c00005;
+  --pec-color-grey: #828282;
+  --pec-logo-image-1: "";
+  --pec-logo-icon-white: "";
+  --pec-logo-icon-light-blue: "";
+  --pec-logo-horizontal: "";
+  --pec-home-icon: "";
+  --pec-grad-icon: "";
+  --pec-color-clear-filter: rgb(208, 68, 71);
+  --pec-ion-color-dark-shade: #1e2023;
+
+  &.env-dev {
+    --pec-logo-icon-light-grey: url("https://int-studentapp.careered.com/app/ctu/assets/ctu/images/logo-banner.svg");
+    --pec-logo-icon-white: url("https://int-studentapp.careered.com/app/ctu/assets/ctu/images/logo-banner-white.svg");
+    --pec-logo-icon: url("https://int-studentapp.careered.com/app/ctu/assets/ctu/images/logo.png");
+    --pec-logo-bkgnd: url("https://int-studentapp.careered.com/app/ctu/assets/ctu/images/login-bkgd.jpg");
+    --pec-logo-shield: url("https://int-studentapp.careered.com/app/ctu/assets/ctu/images/CTU_shield.png");
+    --pec-logo-accelerate-fasttrack: url("https://int-studentapp.careered.com/app/ctu/assets/ctu/images/fast-track-logo.png");
+  }
+  &.env-int {
+    --pec-logo-icon-light-grey: url("https://int-studentapp.careered.com/app/ctu/assets/ctu/images/logo-banner.svg");
+    --pec-logo-icon-white: url("https://int-studentapp.careered.com/app/ctu/assets/ctu/images/logo-banner-white.svg");
+    --pec-logo-icon: url("https://int-studentapp.careered.com/app/ctu/assets/ctu/images/logo.png");
+    --pec-logo-bkgnd: url("https://int-studentapp.careered.com/app/ctu/assets/ctu/images/login-bkgd.jpg");
+    --pec-logo-shield: url("https://int-studentapp.careered.com/app/ctu/assets/ctu/images/CTU_shield.png");
+    --pec-logo-accelerate-fasttrack: url("https://int-studentapp.careered.com/app/ctu/assets/ctu/images/fast-track-logo.png");
+  }
+  &.env-reg {
+    --pec-logo-icon-light-grey: url("https://reg-studentapp.careered.com/app/ctu/assets/ctu/images/logo-banner.svg");
+    --pec-logo-icon-white: url("https://reg-studentapp.careered.com/app/ctu/assets/ctu/images/logo-banner-white.svg");
+    --pec-logo-icon: url("https://reg-studentapp.careered.com/app/ctu/assets/ctu/images/logo.png");
+    --pec-logo-bkgnd: url("https://reg-studentapp.careered.com/app/ctu/assets/ctu/images/login-bkgd.jpg");
+    --pec-logo-shield: url("https://reg-studentapp.careered.com/app/ctu/assets/ctu/images/CTU_shield.png");
+    --pec-logo-accelerate-fasttrack: url("https://reg-studentapp.careered.com/app/ctu/assets/ctu/images/fast-track-logo.png");
+  }
+  &.env-prod {
+    --pec-logo-icon-light-grey: url("https://studentapp.careered.com/app/ctu/assets/ctu/images/logo-banner.svg");
+    --pec-logo-icon-white: url("https://studentapp.careered.com/app/ctu/assets/ctu/images/logo-banner-white.svg");
+    --pec-logo-icon: url("https://studentapp.careered.com/app/ctu/assets/ctu/images/logo.png");
+    --pec-logo-bkgnd: url("https://studentapp.careered.com/app/ctu/assets/ctu/images/login-bkgd.jpg");
+    --pec-logo-shield: url("https://studentapp.careered.com/app/ctu/assets/ctu/images/CTU_shield.png");
+    --pec-logo-accelerate-fasttrack: url("https://studentapp.careered.com/app/ctu/assets/ctu/images/fast-track-logo.png");
+  }
+}

@@ -1,0 +1,21 @@
+<ion-card class="pec-px-12 pec-py-15" (click)="toggleSection(i)">
+  <ion-grid>
+    <ion-row class="pec-d-align-items-center">
+      <div [class]="icon" class="icon-left" *ngIf="icon">
+        <span class="pec-icon-{{ icon }} pec-text-primary pec-fs-34"></span>
+        <br />
+        <span class="icon-text pec-fw-400 pec-text-dark pec-fs-11">{{ iconLabel }}</span>
+      </div>
+      <ion-col class="pec-text-primary pec-fs-14 pec-fw-600 pec-d-flex-grow-1">
+        <h3 class="pec-m-0 pec-my-2 pec-font-oswald">{{ header }}</h3>
+        <span class="content">{{ content }}</span>
+      </ion-col>
+      <ion-col class="pec-px-4 pec-py-0 pec-d-flex-grow-0 pec-text-primary pec-fs-24">
+        <ion-row>
+          <span *ngIf="!expandState" class="pec-icon-thick-chevron-down" aria-label="expand"></span>
+          <span *ngIf="expandState" class="pec-icon-thick-chevron-up" aria-label="collapse"></span>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-card>

@@ -1,0 +1,179 @@
+<ion-card class="fade-in-show">
+  <ion-card-header class="ion-text-left pec-text-dark pec-px-6 pec-pb-12 pec-pt-18">
+    <ion-col class="overview-title pec-fs-17 pec-fw-600">
+      <ng-container *ngIf="isCourse">{{ overviewType }} {{ overviewName }}</ng-container>
+      <ng-container *ngIf="isUnit && !isListView">{{ overviewType }} OVERVIEW</ng-container>
+      <ng-container *ngIf="isUnit && isListView">
+        {{ overviewType }} {{ unitInfo.UnitNumber }} {{ overviewName }}&nbsp;
+        <span class="pec-fw-400">
+          ({{ unitInfo.StartDate | pecDate: 'MMM d' | async }} - {{ unitInfo.EndDate | pecDate: 'MMM d' | async }})
+        </span>
+      </ng-container>
+    </ion-col>
+  </ion-card-header>
+  <ion-card-content class="pec-p-0">
+    <ion-grid>
+      <ion-row *ngIf="isCourse">
+        <ion-col>
+          <ion-button
+            class="pec-button-grey"
+            [routerLink]="['course-overview']"
+            [state]="{ classId: classId, isCourseOverview: true, isCourseObjectives: false, courseInfo: classInfo }"
+            [pecTrackEvent]="{
+              category: 'Classroom View',
+              action: 'Tapped Course Info',
+              label: '',
+              value: '',
+              classId: classId
+            }"
+          >
+            <div class="line-height">{{ overviewType.toUpperCase() }} INFO</div>
+          </ion-button>
+        </ion-col>
+        <ion-col *ngIf="!isNewCustomCourse">
+          <ion-button
+            class="pec-button-grey"
+            [routerLink]="['course-objectives']"
+            [state]="{ classId: classId, isCourseObjectives: true, isCourseOverview: false, courseInfo: classInfo }"
+            [pecTrackEvent]="{
+              category: 'Classroom View',
+              action: 'Tapped Course Objectives',
+              label: '',
+              value: '',
+              classId: classId
+            }"
+          >
+            OBJECTIVES
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="isUnit && classStatus && classStatus.TemplateId !== 2" class="three-col">
+        <ion-col *ngIf="overviewDescription">
+          <ion-button
+            class="pec-button-grey"
+            [routerLink]="['unit-info', unitInfo.UnitNumber]"
+            [state]="{
+              classId: classId,
+              unitInfoView: true,
+              currentUnitInfo: unitOverview,
+              isStandard: isStandard
+            }"
+            [pecTrackEvent]="{
+              category: 'Classroom View',
+              action: 'Tapped Unit Info',
+              label: '',
+              value: '',
+              classId: classId
+            }"
+          >
+            <div class="line-height">{{ overviewType.toUpperCase() }} {{ unitInfoName }}</div>
+          </ion-button>
+        </ion-col>
+        <ion-col *ngIf="!isNewCustomCourse || unitHasObjectives">
+          <ion-button
+            class="pec-button-grey"
+            [routerLink]="['unit-objectives', unitInfo.UnitNumber]"
+            [state]="{
+              classId: classId,
+              unitObjectivesView: true,
+              currentUnitInfo: unitOverview
+            }"
+            [pecTrackEvent]="{
+              category: 'Classroom View',
+              action: 'Tapped Unit Objectives',
+              label: '',
+              value: '',
+              classId: classId
+            }"
+          >
+            OBJECTIVES
+          </ion-button>
+        </ion-col>
+        <ion-col *ngIf="classStatus">
+          <ion-button
+            class="pec-button-grey"
+            [routerLink]="['learning-activities', unitInfo.UnitNumber]"
+            [state]="{
+              classId: classId,
+              unitLearningActivitiesView: true,
+              currentUnitInfo: unitOverview,
+              isStandard: isStandard,
+              unitNumber: unitInfo.UnitNumber
+            }"
+            [pecTrackEvent]="{
+              category: 'Classroom View',
+              action: isAiu ? 'Tapped to View Learning Materials' : 'Tapped to View Books and Resources',
+              label: '',
+              value: '',
+              classId: classId
+            }"
+          >
+            <div class="line-height">{{ isAiu ? 'LEARNING MATERIALS' : 'BOOKS & RESOURCES' }}</div>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="isUnit && classStatus && classStatus.TemplateId === 2" class="three-col">
+        <ion-col>
+          <ion-button
+            class="pec-button-grey"
+            [routerLink]="['unit-info', unitInfo.UnitNumber]"
+            [state]="{
+              classId: classId,
+              unitInfoView: true,
+              currentUnitInfo: unitOverview
+            }"
+            [pecTrackEvent]="{
+              category: 'Classroom View',
+              action: 'Tapped Unit Info',
+              label: '',
+              value: '',
+              classId: classId
+            }"
+          >
+            <div class="line-height">{{ overviewType.toUpperCase() }} {{ unitInfoName }}</div>
+          </ion-button>
+        </ion-col>
+        <ion-col *ngIf="!isNewCustomCourse || unitHasObjectives">
+          <ion-button
+            class="pec-button-grey"
+            [routerLink]="['unit-info', unitInfo.UnitNumber]"
+            [state]="{
+              classId: classId,
+              unitObjectivesView: true,
+              currentUnitInfo: unitOverview
+            }"
+            [pecTrackEvent]="{
+              category: 'Classroom View',
+              action: 'Tapped Unit Objectives',
+              label: '',
+              value: '',
+              classId: classId
+            }"
+          >
+            OBJECTIVES
+          </ion-button>
+        </ion-col>
+        <ion-col *ngIf="classStatus && classStatus.TemplateId === 2">
+          <ion-button
+            class="pec-button-grey"
+            [routerLink]="['unit-steps', unitInfo.UnitNumber]"
+            [state]="{
+              classId: classId,
+              unitStepsView: true,
+              currentUnitInfo: unitOverview
+            }"
+            [pecTrackEvent]="{
+              category: 'Classroom View',
+              action: isAiu ? 'Tapped Learning Materials' : 'Tapped Learning Activities',
+              label: '',
+              value: '',
+              classId: classId
+            }"
+          >
+            <div class="line-height">{{ learningActivityName }}</div>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>

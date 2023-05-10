@@ -1,0 +1,23 @@
+<ion-card *ngIf="meetingsList" class="pec-mt-10 ion-text-left">
+  <ion-card-header class="pec-p-0">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <i class="pec-icon-meeting-pillars pec-fs-20"></i>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-header>
+  <ion-card-content class="pec-p-0">
+    <div class="meeting-title pec-fs-17 pec-pt-10 pec-pl-10 pec-pb-0">Meeting Times</div>
+    <div class="course-code pec-fs-12 pec-fw-bold pec-pl-10 pec-pt-0 pec-pb-10">
+      <b>{{ courseCode }}</b>
+    </div>
+    <ul class="pec-ml-10 pec-mt-0 pec-pl-15 pec-pr-10">
+      <li class="meetings-list pec-fs-12" *ngFor="let location of meetingsList">
+        <b>{{ location.StartTimeFormattedString }}:</b>
+        {{ location.BuildingDescrip }} (Room {{ location.RoomNumber }})
+      </li>
+    </ul>
+  </ion-card-content>
+</ion-card>

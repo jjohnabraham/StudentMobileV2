@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="pec-back-button" [text]="''" [icon]="''"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Announcement Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content
+  forceOverscroll="false"
+  [class.error-page]="showError"
+  class="description-page"
+  [pecTrackView]="{ view: 'Announcements Detail View' }"
+>
+  <ng-container *ngIf="!showError">
+    <pec-loading *ngIf="showLoading"></pec-loading>
+    <ng-container *ngIf="!showLoading">
+      <ion-row class="announcement-detail-header">
+        <ion-col class="announcement-detail-school-logo">
+          <ion-avatar item-start>
+            <img [src]="schoolLogo" alt="school logo" />
+          </ion-avatar>
+        </ion-col>
+        <ion-col class="announcement-detail-course">
+          <div class="announcement-course">{{ courseCode }}</div>
+          <div>Course Announcement</div>
+        </ion-col>
+        <ion-col class="announcement-detail-send-date">
+          <div>{{ announcement?.PublishDate | pecDate: 'MMM d' | async }}</div>
+          <div>{{ announcement?.PublishDate | pecDate: 'h:mma' | async }}</div>
+        </ion-col>
+      </ion-row>
+
+      <div class="announcement-detail-body">
+        <div class="announcement-detail-title">{{ announcement?.Title }}</div>
+        <div [innerHTML]="announcement?.Description | pecUrlToken | async | pecSafeHtml">
+          {{ announcement?.Description }}
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="showError">
+    <!-- <error-api></error-api> -->
+  </ng-container>
+</ion-content>

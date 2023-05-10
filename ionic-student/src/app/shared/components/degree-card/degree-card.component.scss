@@ -1,0 +1,127 @@
+ion-card.degree-overview-card {
+  color: var(--pec-color-dark);
+  margin: 0;
+
+  ion-card-header {
+    padding: 15px 12px 14px;
+    white-space: normal;
+    font-size: 18px;
+    color: var(--pec-color-dark);
+    text-transform: none;
+    border-bottom: 0;
+  }
+
+  ion-card-content {
+    padding: 0 12px;
+    padding-bottom: 14px;
+  }
+
+  .grid-grades {
+    padding: 6px;
+    .col {
+      padding: 6px;
+    }
+    h5 {
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 1;
+      letter-spacing: -0.26px;
+      //font-family: $font-open-sans;
+      padding-bottom: 5px;
+      margin: 2px 0;
+      white-space: normal;
+
+      span {
+        float: left;
+        width: 100%;
+        font-size: 14px;
+        font-weight: normal;
+        padding-top: 3px;
+      }
+    }
+    span {
+      color: var(--pec-color-dark);
+      font-size: 14px;
+      letter-spacing: -0.6px;
+      line-height: 15px;
+      //font-family: $font-open-sans;
+    }
+    .expected-grad-date {
+      padding-bottom: 9px;
+      margin-top: -6px;
+      h2 {
+        display: inline;
+        font-size: 17px;
+        font-weight: 400;
+      }
+      .col {
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
+    }
+    [size="4"] {
+      text-align: center;
+      .content-left {
+        text-align: left;
+        display: inline-block;
+      }
+    }
+  }
+}
+.round-progress-bar {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 10px;
+
+  round-progress {
+    width: 99px !important;
+    height: 99px !important;
+
+    ::ng-deep path {
+      stroke: var(--pec-color-primary) !important;
+    }
+  }
+
+  .round-progress-text {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+  }
+}
+
+:host-context(.theme-18) {
+  .degree-message-card {
+    background: var(--pec-logo-icon-light-grey);
+    background-size: 65px;
+    background-color: #646b73;
+    background-repeat: no-repeat;
+    background-position-x: 97%;
+    background-position-y: 20px;
+  }
+}
+:host-context(.theme-9) {
+  .degree-message-card {
+    background: var(--pec-logo-icon-light-grey);
+    background-size: 100px;
+    background-color: #646b73;
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: 110%;
+  }
+}
+
+.grad-logo-degree-card {
+  background: var(--pec-grad-icon);
+  background-repeat: no-repeat;
+  height: 85px;
+}
+
+.cardfooter {
+  text-align: center;
+}

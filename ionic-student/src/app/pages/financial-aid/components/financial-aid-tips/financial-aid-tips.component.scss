@@ -1,0 +1,36 @@
+.pec-financial-aid-tips-card {
+  background: var(--pec-logo-icon-light-grey);
+  background-color: var(--pec-color-card-dark-grey);
+  background-repeat: no-repeat;
+  color: var(--pec-color-white);
+}
+
+:host-context(.theme-18) {
+  .pec-financial-aid-tips-card {
+    background-size: 54px;
+    background-position-x: 95%;
+    background-position-y: 107%;
+  }
+}
+
+:host-context(.theme-9) {
+  .pec-financial-aid-tips-card {
+    background-size: 100px;
+    background-position-x: 95%;
+    background-position-y: 110%;
+  }
+}
+
+ion-card-content {
+  padding: 0 16px 20px;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+ion-card-header {
+  padding: 15px 16px;
+  line-height: 1.4;
+  letter-spacing: 0.5px !important;
+  font-size: 22px;
+  font-weight: 400 !important;
+}

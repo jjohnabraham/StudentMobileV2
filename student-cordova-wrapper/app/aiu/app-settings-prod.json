@@ -1,0 +1,18 @@
+{
+  "AppConfigurations": {
+    "IOSAppId": "edu.aiuniv.www",
+    "AndroidAppId": "edu.aiuniv",
+    "AppName": "AIU Student",
+    "AppDisplayName": "AIU&#x2007;Student",
+    "CustomUrlScheme": "cecconnectaiu",
+    "UrbanAirshipAppKey": "JYmNnAlwT1CI6RsTl8xTPA",
+    "UrbanAirshipAppSecret": "-fYrh3L-T_qZNznOqKNSZw",
+    "UrbanAirshipGcmSenderId": "289237884186"
+  },
+
+  "Preferences": {
+    "Url": "https://studentapp.careered.com/app/aiu/assets/",
+    "Environment": "prod",
+    "Version": "1.0.4"
+  }
+}

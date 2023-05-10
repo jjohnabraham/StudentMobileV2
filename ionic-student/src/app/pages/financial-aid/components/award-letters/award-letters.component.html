@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="pec-back-button" [text]="''" [icon]="''"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div>Past Financial Aid Award Letters</div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content forceOverscroll="false" [pecTrackView]="{ view: 'Contacts View' }">
+  <pec-loading *ngIf="showLoading"></pec-loading>
+  <ng-container *ngIf="!showLoading">
+    <ion-list class="pec-p-0">
+      <ion-list-header class="letters-header pec-fw-bold pec-fs-12 pec-text-black pec-py-15 pec-pl-30">
+        <ion-label>
+          <span>
+            {{ awardLetters?.length }}
+            <span>PAST FINANCIAL AID AWARD LETTER(S)</span>
+          </span>
+        </ion-label>
+        <div class="overview-description" *ngIf="awardLetters?.length > 0">View your past FA award letters.</div>
+      </ion-list-header>
+      <ng-container *ngIf="awardLetters?.length > 0">
+        <ion-item
+          pecLmsRedirect
+          pecOpenIn="browser"
+          pecUrl="/Document/view?cmDocId={{ awardLetter.CmDocumentId }}&imageNowId="
+          *ngFor="let awardLetter of awardLetters"
+        >
+          <ion-label>Award Letter ({{ awardLetter.DateReceived | pecDate: 'M/d/yy' | async }})</ion-label>
+        </ion-item>
+      </ng-container>
+      <ion-item *ngIf="awardLetters.length === 0">
+        <ion-label>You do not have any past FA award letters yet.</ion-label>
+      </ion-item>
+    </ion-list>
+  </ng-container>
+</ion-content>

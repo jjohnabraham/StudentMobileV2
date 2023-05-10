@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "877593480043",
+    "firebase_url": "https://aiu-faculty-prod.firebaseio.com",
+    "project_id": "aiu-faculty-prod",
+    "storage_bucket": "aiu-faculty-prod.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:877593480043:android:c49716d58fe1f720",
+        "android_client_info": {
+          "package_name": "edu.aiuniv.facultymobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "877593480043-opgj5hsgdpomhnm93172f99ug8hqij95.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAte_hWpXUptJxuOCEKGsJEdmxqTUlvSvs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,18 @@
+{
+  "AppConfigurations": {
+    "IOSAppId": "edu.ctuonline.campus",
+    "AndroidAppId": "edu.ctuniv",
+    "AppName": "CTU Mobile",
+    "AppDisplayName": "CTU&#x2007;Mobile",
+    "CustomUrlScheme": "cecconnectctu",
+    "UrbanAirshipAppKey": "ptGjKenbSwuB86ZngHJJrQ",
+    "UrbanAirshipAppSecret": "VtU8heg9T3yA96jQflSa9A",
+    "UrbanAirshipGcmSenderId": "449470634882"
+  },
+
+  "Preferences": {
+    "Url": "https://studentapp.careered.com/app/ctu/assets/",
+    "Environment": "prod",
+    "Version": "1.0.4"
+  }
+}

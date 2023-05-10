@@ -1,0 +1,22 @@
+<pec-popover-container
+  [title]="title"
+  [buttons]="[{ label: 'Submit a Ticket', redirectUrl: redirectUrl }]"
+  (closeClick)="onPopoverCloseClick()"
+>
+  <p>
+    <span>{{ message }}</span>
+    <span *ngIf="errorCode === 'LCZAPI'">
+      If this problem persists, please contact tech support by submitting a ticket below or by phone at
+    </span>
+    <span *ngIf="errorCode !== 'LCZAPI'">&nbsp;at</span>
+    <br />
+    <span>
+      <a href="tel:{{ techSupportContactPhone }}">{{ techSupportContactPhone }}</a>
+      <span>.</span>
+    </span>
+  </p>
+  <p *ngIf="errorCode">
+    <strong>CODE:</strong>
+    {{ errorCode }}
+  </p>
+</pec-popover-container>

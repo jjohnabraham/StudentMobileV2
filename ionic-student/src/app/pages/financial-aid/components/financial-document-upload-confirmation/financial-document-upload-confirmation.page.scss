@@ -1,0 +1,26 @@
+ion-content {
+    --padding-top: 25px;
+     
+  }
+  .pec-text-success {
+    color: #417505 !important;
+  }
+  .pec-text-error{
+    color: #c00005  !important;
+  }
+  .pec-file-upload-list {
+    ion-item {
+      --padding-start: 0px;
+      --inner-padding-end: 0px;
+      --inner-border-width: 0px;
+      display: flex;
+      .file-wrapper {
+        border-radius: 2px;
+        border: 2px solid #e8e8e8;
+      }
+      button {
+        margin: 4px 8px;
+        margin-right: 0;
+      }
+    }
+  }

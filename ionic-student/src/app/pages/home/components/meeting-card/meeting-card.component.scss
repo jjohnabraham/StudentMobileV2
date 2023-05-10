@@ -1,0 +1,11 @@
+ion-card {
+  --padding-top: 30px;
+
+  ion-card-content {
+    ul {
+      li {
+        white-space: normal;
+      }
+    }
+  }
+}

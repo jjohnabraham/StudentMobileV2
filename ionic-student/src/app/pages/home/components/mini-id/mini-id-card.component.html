@@ -1,0 +1,47 @@
+<pec-loading *ngIf="!userInfo"></pec-loading>
+<ion-card
+  *ngIf="userInfo"
+  class="pec-mini-id"
+  name="home-user-card"
+  data-pecname="home-user-card"
+  [pecTrackEvent]="{ category: 'App Home', action: 'Tapped to View Student ID', label: '', value: '' }"
+  (click)="presentIdCard()"
+>
+  <ion-card-header class="mini-id-header pec-px-6 pec-py-0 ion-text-capitalize">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div class="mini-id-avatar-container">
+            <ion-img class="mini-id-avatar" [src]="avatar" alt="Your Profile Image"></ion-img>
+          </div>
+          <div class="mini-id-details-container">
+            <div class="mini-id-name">
+              <h2>
+                {{ userInfo.FirstName }}
+                {{ userInfo.LastName }}
+              </h2>
+            </div>
+            <div class="mini-id-number">
+              <h3>
+                <span>Student ID</span>
+                <span class="pec-text-primary">
+                  {{ userInfo.StudentNumber }}
+                </span>
+              </h3>
+            </div>
+            <div class="mini-id-email">
+              {{ userInfo.EmailAddress }}
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-header>
+  <ion-card-content class="mini-id-footer">
+    <ion-row>
+      <ion-col>
+        <i class="pec-text-white pec-icon-{{ globalConfigs.brandName.toLowerCase() }}-logo-horizontal"></i>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+</ion-card>

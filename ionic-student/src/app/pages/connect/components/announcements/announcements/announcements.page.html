@@ -1,0 +1,94 @@
+<ion-header *ngIf="!showError">
+  <ion-toolbar class="headerbar">
+    <ion-buttons slot="start">
+      <ion-back-button
+        (click)="goBack()"
+        *ngIf="previousView"
+        [defaultHref]="previousView"
+        class="pec-back-button"
+        [text]="''"
+        [icon]="''"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button
+        class="announcements-filter-button"
+        fill="clear"
+        [class]="{
+          'announcements-filter-count': filterOptions && filterOptions.filterCount && filterOptions.filterCount > 0
+        }"
+        (click)="openFilterSlider()"
+      >
+        <div *ngIf="filterOptions && filterOptions.filterCount && filterOptions.filterCount > 0">
+          {{ filterOptions.filterCount }}
+        </div>
+        <i class="pec-icon-filter"></i>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="title">Announcements</ion-title>
+  </ion-toolbar>
+  <ion-toolbar class="toolbar" mode="md">
+    <ion-segment [(ngModel)]="allOrUnread" mode="md">
+      <ion-segment-button
+        value="all"
+        [pecTrackEvent]="{
+          category: 'Announcements View',
+          action: 'Tapped All Announcements Tab',
+          label: '',
+          value: ''
+        }"
+      >
+        ALL ({{ allCount }})
+      </ion-segment-button>
+      <ion-segment-button
+        value="unread"
+        [pecTrackEvent]="{
+          category: 'Announcements View',
+          action: 'Tapped Unread Announcements Tab',
+          label: '',
+          value: ''
+        }"
+      >
+        UNREAD ({{ unreadCount }})
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+<ion-content
+  forceOverscroll="false"
+  class="announcements-content"
+  [class.error-page]="showError"
+  [pecTrackView]="{ view: 'Announcements View' }"
+>
+  <ng-container *ngIf="!showError">
+    <ion-refresher slot="fixed" (ionRefresh)="refreshPage($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <pec-loading *ngIf="showLoading"></pec-loading>
+
+    <ng-container *ngIf="!showLoading">
+      <div [ngSwitch]="allOrUnread">
+        <div *ngSwitchCase="'all'" ngSelected="selected">
+          <pec-announcements-list
+            [isAllList]="true"
+            [announcementsList]="allList"
+            [classDictionary]="classDictionary"
+            (updateLists)="updateLists()"
+          ></pec-announcements-list>
+        </div>
+        <div *ngSwitchCase="'unread'">
+          <pec-announcements-list
+            [isAllList]="false"
+            [announcementsList]="unreadList"
+            [classDictionary]="classDictionary"
+            (updateLists)="updateLists()"
+          ></pec-announcements-list>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+  <ng-container *ngIf="showError">
+    <pec-error-api [errCode]="errCode"></pec-error-api>
+  </ng-container>
+</ion-content>

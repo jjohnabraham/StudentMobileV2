@@ -1,0 +1,15 @@
+﻿.vs/
+node_modules/
+
+/backup/cordova-plugin-inappbrowser/
+
+/ionic-student/.sourcemaps/
+/ionic-student/platforms/
+/ionic-student/www/
+
+/student-cordova-wrapper/app/plugins/
+
+/ionic-student/$blob.txt
+*.db
+npm-debug*
+/ionic-student-OLD

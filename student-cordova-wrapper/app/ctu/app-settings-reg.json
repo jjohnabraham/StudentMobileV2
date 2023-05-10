@@ -1,0 +1,16 @@
+{
+  "AppConfigurations": {
+    "AppId": "edu.ctu.studentappreg",
+    "AppName": "CTU Student REG",
+    "AppDisplayName": "CTU&#x2007;Student&#x2007;REG",
+    "CustomUrlScheme": "ctustudentreg",
+    "UrbanAirshipAppKey": "U4si_PfmQY6qIQGSelWVQA",
+    "UrbanAirshipAppSecret": "Gyjob_u-SG6xMydpiGyZBQ",
+    "UrbanAirshipGcmSenderId": "924718124336"
+  },
+
+  "Preferences": {
+     "Url": "https://reg-studentapp.careered.com/app/ctu/assets/",
+    "Environment":  "reg"
+  }
+}

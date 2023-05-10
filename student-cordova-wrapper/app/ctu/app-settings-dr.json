@@ -1,0 +1,16 @@
+{
+  "AppConfigurations": {
+    "AppId": "edu.ctu.studentappdr",
+    "AppName": "CTU Student DR",
+    "AppDisplayName": "CTU&#x2007;Student&#x2007;DR",
+    "CustomUrlScheme": "ctustudentdr",
+    "UrbanAirshipAppKey": "So9_hFJ4R3-Z-7wW4lNICA",
+    "UrbanAirshipAppSecret": "nyEjfy6YRymZPR8eBYSzSg",
+    "UrbanAirshipGcmSenderId": "930567419490"
+  },
+
+  "Preferences": {
+     "Url": "https://dr-studentapp.careered.com/app/ctu/assets/",
+    "Environment": "dr"
+  }
+}

@@ -1,0 +1,50 @@
+<ion-row class="dismiss-row" (click)="dismissed()"></ion-row>
+<ion-content class="modal-wrapper" forceOverscroll="false">
+  <ion-row class="pec-font-default-semibold pec-fs-18 pec-fw-400 pec-mb-0 modal-header">
+    <ion-col class="pec-p-0">
+      <span class="header-title">SORT BY</span>
+    </ion-col>
+    <ion-col class="pec-d-flex pec-d-justify-content-end pec-d-align-items-center pec-p-0">
+      <ion-button class="pec-m-0 pec-fs-18 pec-fw-500" color="primary" fill="clear" (click)="dismissed()">
+        Done
+      </ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row class="pec-py-15 modal-selector">
+    <ion-col>
+      <ion-button
+        (click)="sortOrder = 'due date'"
+        shape="round"
+        expand="block"
+        class="pec-m-0 pec-fs-13 pec-fw-600"
+        [class.unselected]="sortOrder != 'due date'"
+      >
+        DUE DATE
+      </ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button
+        (click)="sortOrder = 'time'"
+        shape="round"
+        expand="block"
+        class="pec-m-0 pec-fs-13 pec-fw-600"
+        [class.unselected]="sortOrder != 'time'"
+      >
+        TIME TO
+        <br />
+        COMPLETE
+      </ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button
+        (click)="sortOrder = 'type'"
+        shape="round"
+        expand="block"
+        class="pec-m-0 pec-fs-13 pec-fw-600"
+        [class.unselected]="sortOrder != 'type'"
+      >
+        TYPE
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

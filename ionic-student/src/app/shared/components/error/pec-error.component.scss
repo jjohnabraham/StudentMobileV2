@@ -1,0 +1,71 @@
+ion-content {
+  --background: var(--pec-color-white);
+  --padding-start: 15px;
+  --padding-end: 15px;
+
+  .error-header-image {
+    .pec-icon-aiu-logo-compact {
+      font-size: 52px;
+    }
+
+    .pec-icon-ctu-logo-horizontal {
+      font-size: 32px;
+    }
+  }
+
+  a {
+    text-decoration: underline;
+    color: #0e6291;
+  }
+
+  .error-image {
+    height: 226px;
+    width: 291px;
+  }
+}
+
+ion-title {
+  padding-inline: 15px;
+
+  i,
+  b {
+    vertical-align: middle;
+  }
+}
+
+ion-button {
+  min-width: 130px;
+}
+
+:host-context(.theme-9) {
+  .pec-icon-aiu-logo-letters {
+    display: none;
+  }
+}
+
+:host-context(.theme-18) {
+  .pec-icon-ctu-logo-mtn {
+    display: none;
+  }
+}
+
+.wifi-symbol {
+  padding: 16px;
+  padding-bottom: 0;
+  margin-bottom: -60px;
+  color: #222;
+}
+
+.wifi-symbol,
+.wifi-symbol:before {
+  display: inline-block;
+  border: 48px double transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+}
+
+.wifi-symbol:before {
+  content: "";
+  width: 0;
+  height: 0;
+}

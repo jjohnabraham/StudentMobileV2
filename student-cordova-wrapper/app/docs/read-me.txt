@@ -1,0 +1,14 @@
+﻿### Pre-requisites to Build the App ###
+npm (ver: 4.2.0)
+cordova (ver: 8.0.0)
+ionic (ver: 3.19.1)
+
+### Build Instructions ###
+gulp build --ctu --platform=android,ios --env=int --outputDir=C:/temp
+
+*** Please see gulpfile.js for the detailed instructions
+
+### distribution ###
+fastlane android deploy to:crashlytics env:dev campuses:aiu ver:112 build:314561
+
+*** Please check the distribution folder for more details

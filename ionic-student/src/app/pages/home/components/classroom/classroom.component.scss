@@ -1,0 +1,21 @@
+ion-header {
+  ion-toolbar {
+    --min-height: 52px;
+  }
+
+  &.hide-shadow {
+    box-shadow: none;
+
+    ion-toolbar {
+      --border-width: 0;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+ion-content {
+  --padding-bottom: 0;
+}

@@ -1,0 +1,68 @@
+<ion-row class="dismiss-row" (click)="dismissed()"></ion-row>
+<ion-content class="modal-wrapper" forceOverscroll="false">
+  <ion-row class="pec-font-default-semibold pec-fs-18 pec-fw-400 pec-mb-0 modal-header">
+    <ion-col class="pec-p-0">
+      <span class="header-title">SORT BY</span>
+    </ion-col>
+    <ion-col class="pec-d-flex pec-d-justify-content-end pec-d-align-items-center pec-p-0">
+      <ion-button class="pec-m-0 pec-fs-18 pec-fw-500" color="primary" fill="clear" (click)="dismissed()">
+        Done
+      </ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row class="pec-py-15 modal-selector">
+    <ion-col>
+      <ion-button
+        (click)="sortOrder = 'title'"
+        shape="round"
+        expand="block"
+        class="pec-m-0 pec-fs-13 pec-fw-600"
+        [class.unselected]="sortOrder != 'title'"
+        [pecTrackEvent]="{
+          category: 'Bookshelf View',
+          action: 'Tapped to Change Sort Order',
+          label: 'Title',
+          value: ''
+        }"
+      >
+        TITLE
+      </ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button
+        (click)="sortOrder = 'term'"
+        shape="round"
+        expand="block"
+        class="pec-m-0 pec-fs-13 pec-fw-600"
+        [class.unselected]="sortOrder != 'term'"
+        [pecTrackEvent]="{
+          category: 'Bookshelf View',
+          action: 'Tapped to Change Sort Order',
+          label: 'Term',
+          value: ''
+        }"
+      >
+        TERM
+      </ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button
+        (click)="sortOrder = 'course name'"
+        shape="round"
+        expand="block"
+        class="pec-m-0 pec-fs-13 pec-fw-600"
+        [class.unselected]="sortOrder != 'course name'"
+        [pecTrackEvent]="{
+          category: 'Bookshelf View',
+          action: 'Tapped to Change Sort Order',
+          label: 'Course Name',
+          value: ''
+        }"
+      >
+        COURSE
+        <br />
+        NAME
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

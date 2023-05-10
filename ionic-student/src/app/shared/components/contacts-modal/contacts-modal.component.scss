@@ -1,0 +1,19 @@
+ion-col {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.modal-content-wrap {
+  overflow: scroll;
+}
+
+ion-button {
+  &.pec-button-grey {
+    margin-bottom: 10px;
+    text-transform: capitalize;
+  }
+
+  &.phone-btn {
+    text-transform: none;
+  }
+}

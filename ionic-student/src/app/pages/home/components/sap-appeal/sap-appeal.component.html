@@ -1,0 +1,9 @@
+<ng-container *ngIf="ready">
+  <pec-popover-container
+    title="SAP Appeal Letter Not Submitted"
+    [message]="sapAppeal.Message"
+    [buttons]="[{ label: 'Additional Information', class: 'sap-appeal' }]"
+    (buttonClick)="onButtonClick($event)"
+    (closeClick)="onPopoverCloseClick()"
+  ></pec-popover-container>
+</ng-container>

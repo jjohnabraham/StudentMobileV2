@@ -1,0 +1,46 @@
+:host-context(pec-financial-document-summary) {
+  ion-item {
+    --padding-start: 30px;
+    --min-height: 44px;
+
+    ion-label {
+      font-size: 13px;
+      margin-top: 13px;
+      margin-bottom: 13px;
+    }
+  }
+}
+
+.doc-time-complete {
+  display: flex;
+  align-items: center;
+  border-left: 1px solid var(--pec-color-border-grey);
+
+  &.no-due-date {
+    border-left: 0;
+    padding-left: 0;
+    margin-left: 0;
+  }
+}
+
+.document-submitted-wrap {
+  .submitted-badge {
+    background-color: #417505;
+  }
+}
+
+ion-badge {
+  &.urgent-badge {
+    background-color: var(--pec-color-danger);
+  }
+}
+
+:host(.last-item) {
+  ion-item {
+    --inner-border-width: 0;
+  }
+}
+
+ion-item {
+  --padding-start: 15px;
+}

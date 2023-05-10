@@ -1,0 +1,102 @@
+@mixin padding-collapse-var($pixels-size) {
+  padding-left: $pixels-size;
+  padding-right: $pixels-size;
+}
+
+@mixin width-row-responsive() {
+  @include pec-screen($sm) {
+    width: 750px;
+  }
+  @include pec-screen($md) {
+    width: 970px;
+  }
+  @media (min-width: 999px) {
+    width: 1000px;
+  }
+}
+
+@mixin padding($top, $right, $bottom, $left) {
+  padding-top: $top;
+  padding-right: $right;
+  padding-bottom: $bottom;
+  padding-left: $left;
+}
+
+@mixin paddingTop($top) {
+  padding-top: $top;
+}
+
+@mixin paddingRight($right) {
+  padding-right: $right;
+}
+
+@mixin paddingBottom($bottom) {
+  padding-bottom: $bottom;
+}
+
+@mixin paddingLeft($left) {
+  padding-left: $left;
+}
+
+@mixin margin($top, $right, $bottom, $left) {
+  margin-top: $top;
+  margin-right: $right;
+  margin-bottom: $bottom;
+  margin-left: $left;
+}
+
+@mixin marginTop($top) {
+  margin-top: $top;
+}
+
+@mixin marginRight($right) {
+  margin-right: $right;
+}
+
+@mixin marginBottom($bottom) {
+  margin-bottom: $bottom;
+}
+
+@mixin marginLeft($left) {
+  margin-left: $left;
+}
+
+@mixin col-grid-custom($left: 15px, $right: 15px) {
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-left: $left;
+  padding-right: $right;
+}
+
+@mixin pec-screen($map) {
+  $query: "";
+  @if map-has-key($map, min) {
+    $query: append($query, "(min-width: #{map-get($map, min)})");
+  }
+  @if map-has-key($map, min) and map-has-key($map, max) {
+    $query: append($query, "and");
+  }
+  @if map-has-key($map, max) {
+    $query: append($query, "(max-width: #{map-get($map, max)})");
+  }
+  @media screen and #{$query} {
+    @content;
+  }
+}
+
+@mixin generate-class($map, $attribute, $prefix: "-") {
+  @each $key, $value in $map {
+    &#{#{$prefix}#{$key} } {
+      @if type-of($value) == "map" {
+        @include generate-class($value, $attribute, $prefix);
+      } @else if type-of($attribute) == "list" {
+        @each $a in $attribute {
+          #{$a}: $value;
+        }
+      } @else {
+        #{$attribute}: $value;
+      }
+    }
+  }
+}
