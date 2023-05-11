@@ -1,5 +1,0 @@
-<label *ngIf="label" class="pec-button" (mouseup)="trackSelect()">
-  {{ label }}
-  <input (click)="presentActionSheet()" style="display: none" />
-  <input id="fileInput" type="file" ng2FileSelect [uploader]="uploader" multiple (change)="change($event)" />
-</label>

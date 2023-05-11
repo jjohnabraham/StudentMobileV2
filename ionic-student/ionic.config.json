@@ -1,7 +1,0 @@
-{
-  "name": "ionic-student",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "angular"
-}

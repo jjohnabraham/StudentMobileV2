@@ -1,9 +1,0 @@
-<pec-loading *ngIf="showLoading"></pec-loading>
-<ion-card *ngIf="!showLoading" name="financial-aid-tips-card" class="pec-financial-aid-tips-card">
-  <ion-card-header class="pec-font-oswald pec-fs-22 pec-fw-400 pec-text-white pec-bw-0 pec-text-tr-ini">
-    Did you know?
-  </ion-card-header>
-  <ion-card-content>
-    <div *ngIf="message" class="pec-font-open-sans pec-fs-13" [innerHTML]="message | pecSafeHtml"></div>
-  </ion-card-content>
-</ion-card>
