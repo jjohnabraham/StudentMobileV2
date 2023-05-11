@@ -1,5 +1,0 @@
-Deploy INT build to Crashlytics:
-fastlane android deploy to:crashlytics env:dev campuses:aiu ver:112 build:314561
-
-
-
